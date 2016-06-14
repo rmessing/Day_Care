@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  mname: MyString
+  lname: MyString
+  food_subsidy: MyString
+
+two:
+  fname: MyString
+  mname: MyString
+  lname: MyString
+  food_subsidy: MyString

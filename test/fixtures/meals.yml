@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  breakfast: false
+  am_snack: false
+  lunch: false
+  pm_snack: false
+  supper: false
+  late_snack: false
+  child_id: 1
+  signature: MyString
+
+two:
+  date: MyString
+  breakfast: false
+  am_snack: false
+  lunch: false
+  pm_snack: false
+  supper: false
+  late_snack: false
+  child_id: 1
+  signature: MyString
