@@ -1,23 +1,19 @@
-<h1>Parents#show</h1>
-<p>Find me in app/views/parents/show.html.erb</p>
 
-<% if session[:parent_id] == nil %>
+<form action="">
+  <input type="radio" name="handoff" value="Arrive"> Drop Off<br>
+  <input type="radio" name="handoff" value="Depart"> Pick Up<br>
+</form>
+
+
+<% @parent.children.each do |child| %>
+	<%= child.fname %>
+	<%= child.mname %>
+	<%= child.lname %>
+
+	<input type="checkbox" id="myCheck">
 	<br>
-	<%= form_for(:session, url: parent_path) do |f| %>
-		<%= f.label :email %>
-		<%= f.search_field :email %>
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-		<%= f.submit "Log in" %>
-	<% end %>
-	<br>
-<% else %>
-
-	<h1>
-	<%= "Welcome #{Parent.find(session[:parent_id]).name}. " %>
-	</h1>
-
-
-	<%= button_to "Logout", parent_path %>
- 	
 <% end %>
+
+
+
+

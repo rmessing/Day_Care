@@ -1,3 +1,8 @@
 class Parent < ActiveRecord::Base
-	has_many :children, :through => :family
+	has_many :families
+	has_many :children, through: :families
+ 
+	has_secure_password
+    validates_confirmation_of :password
+	validates_presence_of :password, on: :create
 end
