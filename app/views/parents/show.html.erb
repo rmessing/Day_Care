@@ -1,18 +1,27 @@
+	<!-- Form for child handoffs -->
 
-<form action="">
-  <input type="radio" name="handoff" value="Arrive"> Drop Off<br>
-  <input type="radio" name="handoff" value="Depart"> Pick Up<br>
-</form>
 
+	
 
 <% @parent.children.each do |child| %>
-	<%= child.fname %>
-	<%= child.mname %>
-	<%= child.lname %>
-
-	<input type="checkbox" id="myCheck">
-	<br>
+	<%= form_for @handoff do |f| %>
+		<br>
+		<%= child.fname %>
+		<%= child.mname %>
+		<%= child.lname %>
+		<br>
+		<%= radio_button_tag(:handoff, "arrive") %>
+		<%= f.label(:handoff_arrive, "DropOff") %>
+		<%= radio_button_tag(:handoff, "depart") %>
+		<%= f.label(:handoff_depart, "PickUp") %>
+		<%= f.hidden_field :child_id, :value => child.id %>
+		<%= f.submit "submit" %>
+		<br>
+	<% end %>
 <% end %>
+<br>
+<%= link_to "Done", root_path %>
+
 
 
 

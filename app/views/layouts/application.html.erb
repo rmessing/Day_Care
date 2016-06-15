@@ -6,10 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
- <%= flash[:notice] if flash[:notice] %> 
-  <%= flash[:alert] if flash[:alert] %>
-<%= yield %>
+	<body>
 
-</body>
+	 <%= flash.now[:notice] if flash[:notice] %> 
+	 <%= flash.now[:alert] if flash[:alert] %>
+
+	<%= yield %>
+
+	</body>
 </html>
