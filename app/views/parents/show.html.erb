@@ -1,8 +1,5 @@
 	<!-- Form for child handoffs -->
 
-
-	
-
 <% @parent.children.each do |child| %>
 	<%= form_for @handoff do |f| %>
 		<br>
@@ -10,12 +7,12 @@
 		<%= child.mname %>
 		<%= child.lname %>
 		<br>
-		<%= radio_button_tag(:handoff, "arrive") %>
+		<%= radio_button_tag(:handoff, value = "arrive") %>
 		<%= f.label(:handoff_arrive, "DropOff") %>
-		<%= radio_button_tag(:handoff, "depart") %>
+		<%= radio_button_tag(:handoff, value = "depart") %>
 		<%= f.label(:handoff_depart, "PickUp") %>
 		<%= f.hidden_field :child_id, :value => child.id %>
-		<%= f.submit "submit" %>
+		<%= f.button :submit %>
 		<br>
 	<% end %>
 <% end %>

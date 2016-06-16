@@ -10,15 +10,14 @@ class HandoffsController < ApplicationController
 
   def create
      @handoff = Handoff.new
-     # @handoff.child_id = params[handoff_params]
-     # @handoff.attend = params[handoff_params]
-    if @handoff.save
+     puts "!!!!!!!!!!!!!!!!!!!!!!!"
+     if @handoff.save
       flash[:notice] = "Your handoff has been recorded!"
       redirect_to (:back)
-    else
+     else
       flash[:notice] = "Your handoff was NOT recorded - Try Again."
       redirect_to (:back)
-    end
+     end
   end
 
   def edit
@@ -32,7 +31,7 @@ class HandoffsController < ApplicationController
 
   private 
 
-  # def handoff_params
-  #   params.require(:handoff).permit(:attend, :child_id) 
-  # end
+  def handoff_params
+    params.require(:handoff).permit(:attend, :child_id) 
+  end
 end

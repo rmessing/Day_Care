@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
 
   def new_parent
-    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    puts session[:parent_id]
+    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    # puts session[:parent_id]
     @parent = Parent.new
   end
 
@@ -37,8 +37,8 @@ class SessionsController < ApplicationController
   end
 
   def new_teacher
-    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    puts session[:teacher_id]
+    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    # puts session[:teacher_id]
     @teacher = Teacher.new
   end
 
@@ -73,8 +73,8 @@ class SessionsController < ApplicationController
   end
 
   def new_center
-    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    puts session[:center_id]
+    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    # puts session[:center_id]
     @center = Center.new
   end
 
