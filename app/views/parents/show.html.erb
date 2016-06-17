@@ -7,9 +7,9 @@
 		<%= child.mname %>
 		<%= child.lname %>
 		<br>
-		<%= radio_button_tag(:handoff, value = "arrive") %>
+		<%= f.radio_button(:attend, "arrive") %>
 		<%= f.label(:handoff_arrive, "DropOff") %>
-		<%= radio_button_tag(:handoff, value = "depart") %>
+		<%= f.radio_button(:attend, "depart") %>
 		<%= f.label(:handoff_depart, "PickUp") %>
 		<%= f.hidden_field :child_id, :value => child.id %>
 		<%= f.button :submit %>

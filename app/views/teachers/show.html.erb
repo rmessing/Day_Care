@@ -1,2 +1,11 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<h1>Meals</h1>
+<p>Select Your Class</p>
+
+ <%= collection_select(:group, :teacher_id, Group.all, :id, :name, :prompt => true) %>
+<br>
+<p>Select Date of Meals</p>
+
+<%= form_for Meal.new do |f| %>
+<%= f.date_select :meal_date %>
+<% end %>
+
