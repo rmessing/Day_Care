@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post "/meals/new" => "groups#view"
+  get "/meals/new/:id" => "groups#show", as: :group_meals
+  post "/meals/new/:id" => "groups#show"
+
   resources :centers
   resources :children
   resources :groups
@@ -8,6 +12,9 @@ Rails.application.routes.draw do
   resources :teachers
 
   root "home#index"
+
+  post "/meals/create" => "meals#create"
+
   
   get "/parent-log-in" => "sessions#new_parent", as: :parent_log_in
 

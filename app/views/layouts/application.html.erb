@@ -18,10 +18,16 @@
 
 	<body>
 
-	 <%= flash.now[:notice] if flash[:notice] %> 
-	 <%= flash.now[:alert] if flash[:alert] %>
+		<div class="backimg">
+			<img id="back_hand" src="/assets/crayons.jpg">
+		</div>
 
-	 <%= yield %>
+		<div id="flash">
+			 <%= flash.now[:notice] if flash[:notice] %> 
+			 <%= flash.now[:alert] if flash[:alert] %>
+		 </div>
+
+		 <%= yield %>
 
 	</body>
 </html>

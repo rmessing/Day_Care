@@ -1,5 +1,12 @@
-<% if session[:parent_id] == nil %>
-	<br>
+
+<div class="login_form">
+
+	<% if session[:parent_id] != nil %>
+		<% session[:parent_id] = nil %>
+	<% end %>
+
+<h1 class="user_login"> Parent </h1>
+<br>
 	<%= form_for(:session, url: parent_log_in_path) do |f| %>
 		<%= f.label :email %>
 		<%= f.search_field :email %>
@@ -7,14 +14,5 @@
 		<%= f.password_field :password %>
 		<%= f.submit "Log in" %>
 	<% end %>
-	<br>
-<% else %>
-
-	<h1>
-	<%= "Welcome #{Parent.find(session[:parent_id]).name}. " %>
-	</h1>
-
-
-	<%= button_to "Logout", parent_log_out_path, method: :delete %>
- 	
-<% end %>
+	
+</div>

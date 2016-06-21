@@ -1,2 +1,21 @@
-<h1>Meals#new</h1>
-<p>Find me in app/views/meals/new.html.erb</p>
+
+
+
+
+<div id="meals_group">
+	<h1>Meal Accounting</h1>
+	<br>
+	<p>Select Your Class</p>
+
+	<%= form_tag do %>
+	 	<%= collection_select(:group, :id, Group.all, :id, :name, :prompt => true) %>
+	 	<%= button_to "submit", group_path(:id) %>
+	<% end %>
+ </div>
+
+
+
+
+
+
+

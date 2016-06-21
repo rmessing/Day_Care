@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616190614) do
+ActiveRecord::Schema.define(version: 20160620161405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(version: 20160616190614) do
     t.integer  "meal_type"
     t.integer  "teacher_id"
     t.datetime "meal_date"
+    t.boolean  "breakfast"
+    t.boolean  "am_snack"
+    t.boolean  "lunch"
+    t.boolean  "pm_snack"
+    t.boolean  "supper"
+    t.boolean  "late_snack"
   end
 
   create_table "parents", force: :cascade do |t|

@@ -1,25 +1,27 @@
 	<!-- Form for child handoffs -->
 
+<div id="handoff_form">
+<h1> Handoffs </h1>
 <% @parent.children.each do |child| %>
 	<%= form_for @handoff do |f| %>
-		<br>
+		
 		<%= child.fname %>
 		<%= child.mname %>
 		<%= child.lname %>
 		<br>
 		<%= f.radio_button(:attend, "arrive") %>
-		<%= f.label(:handoff_arrive, "DropOff") %>
+		<%= f.label(:handoff_arrive, "drop off") %>
 		<%= f.radio_button(:attend, "depart") %>
-		<%= f.label(:handoff_depart, "PickUp") %>
+		<%= f.label(:handoff_depart, "pick up") %>
 		<%= f.hidden_field :child_id, :value => child.id %>
 		<%= f.button :submit %>
 		<br>
 	<% end %>
 <% end %>
 <br>
-<%= link_to "Done", root_path %>
+<%= button_to "Logout", parent_log_out_path, method: :delete %>
 
-
+</div>
 
 
 

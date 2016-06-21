@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
 
   def new_parent
-    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # puts session[:parent_id]
     @parent = Parent.new
   end
 
@@ -13,14 +11,13 @@ class SessionsController < ApplicationController
     if @parent && @parent.authenticate(params[:session][:password])
 
 
-	    flash[:notice] = "You are logged in."
+	    flash[:notice] = "Welcome #{@parent.name}!"
 
 	    
 	    session[:parent_id] = @parent.id
 
 	    redirect_to parent_path(current_parent)
     else
-
 		  flash[:alert] = "Invalid email/password combination."
 		  redirect_to parent_log_in_path
     end 
@@ -30,15 +27,13 @@ class SessionsController < ApplicationController
 
 	  session[:parent_id] = nil
 
-	  flash[:notice] = "You've been logged out successfully."
+	  # flash[:notice] = "You are logged off."
 
 	  redirect_to "/" 
 
   end
 
   def new_teacher
-    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # puts session[:teacher_id]
     @teacher = Teacher.new
   end
 
@@ -49,14 +44,13 @@ class SessionsController < ApplicationController
     if @teacher && @teacher.authenticate(params[:session][:password])
 
 
-      flash[:notice] = "You've been logged in."
+      flash[:notice] = "Welcome #{@teacher.name}!"
 
       
       session[:teacher_id] = @teacher.id
 
-      redirect_to teacher_path(current_teacher)
+      redirect_to new_meal_path
     else
-
       flash[:alert] = "Invalid email/password combination."
       redirect_to teacher_log_in_path
     end 
@@ -66,15 +60,13 @@ class SessionsController < ApplicationController
 
     session[:teacher_id] = nil
 
-    flash[:notice] = "You've been logged out successfully."
+    # flash[:notice] = "You are logged off."
 
     redirect_to "/" 
 
   end
 
   def new_center
-    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # puts session[:center_id]
     @center = Center.new
   end
 
@@ -85,7 +77,7 @@ class SessionsController < ApplicationController
     if @center && @center.authenticate(params[:session][:password])
 
 
-      flash[:notice] = "You've been logged in."
+      flash[:notice] = "Welcome #{@center.name}!"
 
       
       session[:center_id] = @center.id
@@ -102,7 +94,7 @@ class SessionsController < ApplicationController
 
     session[:center_id] = nil
 
-    flash[:notice] = "You've been logged out successfully."
+    # flash[:notice] = "You are logged off."
 
     redirect_to "/" 
 
