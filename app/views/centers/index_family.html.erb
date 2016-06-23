@@ -1,0 +1,47 @@
+<div class="title_center">
+	<br>
+	<h1> Family <h1>
+</div>
+
+<div id="family_forms">
+	<div class="parent_child">
+		<%= form_for Parent.new do |f| %>
+
+		<%= f.label :Parent_Name %><br>
+		<%= f.text_field :name  %><br>
+		<%= f.label :Parent_email %><br>
+		<%= f.text_field :email  %><br>
+		<%= f.label :Parent_Password %><br>
+		<%= f.text_field :password  %><br><br>
+
+		<%= f.submit "Create Parent" %>
+		<% end %>
+	</div>
+
+
+	<div class="parent_child">
+		<%= form_for Child.new do |f| %>
+		
+		<%= f.label :First_Name %><br>
+		<%= f.text_field :fname  %><br>
+		<%= f.label :Middle_Name %><br>
+		<%= f.text_field :mname  %><br>
+		<%= f.label :Last_Name %><br>
+		<%= f.text_field :lname  %><br>
+		<%= f.label :Meal_Subsidy %><br>
+		<%= f.select :food_subsidy, ['None', 'Free', 'Reducted'] %><br>
+
+		<%= f.label :Class_Select %><br>
+
+		<%= f.collection_select :group_id, Group.all, :id, :name, include_blank: true %><br><br>
+		<%= f.submit "Create Child" %>
+		<% end %>
+	</div>
+<div id="center_logout">
+	<%= button_to "Logout", center_log_out_path, method: :delete %>
+</div>
+
+	
+</div>
+
+

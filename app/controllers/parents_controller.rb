@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
   def index
-  	@parents = Parents.all
+  	@parents = Parent.all
   end
 
   def show
@@ -17,13 +17,14 @@ class ParentsController < ApplicationController
   end
 
   def create
+     @parent = Parent.new(parent_params)
   	if @parent.save
   	  session[:parent_id] = @parent.id
   	  flash[:notice] = "Welcome!"
-  	  redirect_to parents_path
 	  else
 	  flash[:alert] = "There was a problem creating a new parent. Please try again."
 	  end
+    redirect_to (:back)
   end
 
   def edit
@@ -39,8 +40,7 @@ class ParentsController < ApplicationController
 
   def destroy
   	Parent.find(params[:id]).destroy
-  	session[:parent_id] = nil
-  	redirect_to parents_path
+  	redirect_to (:back)
   end
 
   private

@@ -1,3 +1,29 @@
 // Place all the styles related to the Centers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#center_show {
+	text-align: center;
+	margin-top: 125px;
+}
+.title_center {
+	text-align: center;
+	margin-top: 75px;
+}
+.sign_up {
+	text-align: center;
+	margin-top: 100px;
+}
+.parent_child {
+	float: left;
+	padding: 20px;
+}
+#family_forms {
+	width: 30%;
+	margin: 50px 34% 0 36%;
+}#center_logout {
+	text-align: center;
+}
+.reports {
+	text-align: center;
+}

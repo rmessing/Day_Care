@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
 	    redirect_to parent_path(current_parent)
     else
-		  flash[:alert] = "Invalid email/password combination."
+		  flash[:notice] = "Invalid email/password combination."
 		  redirect_to parent_log_in_path
     end 
   end
@@ -51,7 +51,7 @@ class SessionsController < ApplicationController
 
       redirect_to new_meal_path
     else
-      flash[:alert] = "Invalid email/password combination."
+      flash[:notice] = "Invalid email/password combination."
       redirect_to teacher_log_in_path
     end 
   end
@@ -85,7 +85,7 @@ class SessionsController < ApplicationController
       redirect_to center_path(current_center)
     else
 
-      flash[:alert] = "Invalid email/password combination."
+      flash[:notice] = "Invalid email/password combination."
       redirect_to center_log_in_path
     end 
   end

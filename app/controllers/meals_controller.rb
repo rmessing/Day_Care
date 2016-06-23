@@ -11,6 +11,7 @@ class MealsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @meal = Meal.new(meal_params)
       if @meal.save
         redirect_to group_meals_path(Child.find(params[:meal][:child_id]).group)
@@ -21,12 +22,19 @@ class MealsController < ApplicationController
   end
 
   def edit
+   
   end
 
   def update
+    @meal = Meal.find(params[:id])
+    @meal.update(meal_params)
+    # flash[:notice] = "Meals have been updated."
+    redirect_to (:back)
   end
 
   def destroy
+    Meal.find(params[:id]).destroy
+    redirect_to (:back)
   end
 
   private

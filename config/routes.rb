@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  # post "/meals" => "groups#view"
+  get "/meals/new" => "meals#new"
   post "/meals/new" => "groups#view"
-  get "/meals/new/:id" => "groups#show", as: :group_meals
-  post "/meals/new/:id" => "groups#show"
+  get "/meals/:id" => "groups#show", as: :group_meals
+
+  post "/meals/:id" => "groups#show"
+
+  get "/familyc/" => "centers#index_family"
+  get "/teacherc/" => "centers#index_teacher"
+  get "/groupc/" => "centers#index_group"
+
 
   resources :centers
   resources :children
@@ -13,7 +21,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  post "/meals/create" => "meals#create"
+  # post "/meals/create" => "meals#create"
 
   
   get "/parent-log-in" => "sessions#new_parent", as: :parent_log_in

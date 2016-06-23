@@ -1,2 +1,22 @@
-<h1>Centers#show</h1>
-<p>Find me in app/views/centers/show.html.erb</p>
+
+<div id="center_show">
+<h1> Day Care Center </h1>
+<h1> Operations </h1>
+
+
+<h2> Reports </h2>
+<%= link_to "Attendance", centers_path %><br>
+<%= link_to "Meals", centers_path %><br><br>
+
+<h2> People </h2>
+
+<%= link_to "Family", familyc_path %>
+
+<%= link_to "Teacher", teacherc_path %>
+
+<%= link_to "Class", groupc_path %><br>
+<h3> sign up, profile, update, delete </h3>
+
+<%= button_to "Logout", center_log_out_path, method: :delete %>
+
+</div>

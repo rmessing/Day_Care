@@ -4,9 +4,10 @@
 <div id="meal_form">
 
 <h1> Meal Accounting </h1>
+<h1> for <%= @date.strftime("%m/%d/%y") %></h1>
 
 <%= form_tag group_meals_path(@group) do %>
-	<%= date_select(date = @date, options = {default: Date.today}, html_options = {}) %>
+	<%= select_date(date = @date, options = {}, html_options = {}) %>
 	<%= submit_tag "Select Meals Date" %>
 <% end %>
 <br>
@@ -19,6 +20,7 @@
 	<% else %>
 		<% @meal = Meal.new %>
 	<% end %>
+
 	<%= form_for @meal do |f| %>
 	<%= f.hidden_field :meal_date, value: @date %>
 	
@@ -44,6 +46,7 @@
 		<%= f.check_box(:late_snack) %>
 		<%= label_tag(:late_snack, "Late Snack") %>
 
+		<%= f.hidden_field :teacher_id, :value => @teacher.id %>
 		<%= f.hidden_field :child_id, :value => child.id %>
 		<%= f.button :submit %>
 		<br>

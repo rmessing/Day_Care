@@ -15,12 +15,18 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
+    @group = Group.new
   end
 
   def create
+    @teacher = Teacher.new(teacher_params)
     if @teacher.save
-      session[:teacher_id] = @teacher.id
-      flash[:notice] = "Welcome!"
+      # session[:teacher_id] = @teacher.teacher_id
+      flash[:notice] = "New Teacher is created!"
+    else
+      flash[:notice] = "New Teacher was not created; try again."
+    end
+    redirect_to (:back)
   end
 
   def edit
@@ -36,8 +42,7 @@ class TeachersController < ApplicationController
 
   def destroy
     Teacher.find(params[:id]).destroy
-    session[:center_id] = nil
-    reidrect_to teachers_path
+    reidrect_to (:back)
   end
 
   private

@@ -1,7 +1,4 @@
 
-
-
-
 <div id="meals_group">
 	<h1>Meal Accounting</h1>
 	<br>
@@ -9,7 +6,7 @@
 
 	<%= form_tag do %>
 	 	<%= collection_select(:group, :id, Group.all, :id, :name, :prompt => true) %>
-	 	<%= button_to "submit", group_path(:id) %>
+	 	<%= button_to "submit" %>
 	<% end %>
  </div>
 

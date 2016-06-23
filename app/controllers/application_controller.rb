@@ -10,4 +10,16 @@ class ApplicationController < ActionController::Base
   def current_parent
 		@current_parent ||= Parent.find_by(id: session[:parent_id])
 	end
+
+  helper_method :current_teacher
+
+  def current_teacher
+		@current_teacher ||= Teacher.find_by(id: session[:teacher_id])
+	end
+
+  helper_method :current_center
+
+  def current_center
+		@current_center ||= Center.find_by(id: session[:center_id])
+	end
 end

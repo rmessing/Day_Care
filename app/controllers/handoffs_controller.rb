@@ -1,5 +1,11 @@
 class HandoffsController < ApplicationController
   def index
+    @centers = Center.all
+    @meals = Meal.all
+    @groups = Group.all
+    @teachers = Teacher.all
+    @handoffs = Handoff.all
+    @children = Child.all
   end
 
   def show
@@ -11,10 +17,10 @@ class HandoffsController < ApplicationController
   def create
      @handoff = Handoff.new(handoff_params)
      if @handoff.save
-      flash[:notice] = "Your handoff has been recorded!"
+      flash[:notice] = "The handoff has been recorded!"
       redirect_to (:back)
      else
-      flash[:notice] = "Your handoff was NOT recorded - Try Again."
+      flash[:notice] = "The handoff was NOT recorded - Try Again."
       redirect_to (:back)
      end
   end
@@ -26,6 +32,8 @@ class HandoffsController < ApplicationController
   end
 
   def destroy
+    Handoff.find(params[:id]).destroy
+    redirect_to (:back)
   end
 
   private 

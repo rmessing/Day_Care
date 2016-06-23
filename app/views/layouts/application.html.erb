@@ -23,8 +23,8 @@
 		</div>
 
 		<div id="flash">
-			 <%= flash.now[:notice] if flash[:notice] %> 
-			 <%= flash.now[:alert] if flash[:alert] %>
+			 <%= flash[:notice] if flash[:notice] %> 
+			 <%= flash[:alert] if flash[:alert] %>
 		 </div>
 
 		 <%= yield %>

@@ -1,6 +1,26 @@
 class CentersController < ApplicationController
+  def index_family
+    @group = Group.all
+  end
+
+  def index_teacher
+    @centers = Center.all
+    @group = Center.all
+  end
+
+  def index_group
+    @teachers = Teacher.all
+    @centers = Center.all
+    @groups = Center.all
+  end
+
   def index
     @centers = Center.all
+    @meals = Meal.all
+    @groups = Group.all
+    @teachers = Teacher.all
+    @handoffs = Handoff.all
+    @children = Child.all
   end
 
   def show
@@ -39,8 +59,7 @@ class CentersController < ApplicationController
 
   def destroy
     Center.find(params[:id]).destroy
-    session[:center_id] = nil
-    redirect_to centers_path
+    redirect_to (:back)
   end
 
   private
