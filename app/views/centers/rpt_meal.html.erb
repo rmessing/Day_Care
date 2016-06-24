@@ -1,8 +1,6 @@
-
-
+<div class="title_center"> Meal Counts by Child </div>
+<br>
 <div class="reports">
-
-<h1> Meal Counts by Child </h1>
 
 	<% @children.each do |child| %>
 		<br>
@@ -57,5 +55,8 @@
 
 		<br>
 	<% end %>
+</div>
+
+<div class="center_div">
 	<%= button_to "Center Home", center_path(@center), method: :get %>
 </div>

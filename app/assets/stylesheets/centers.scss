@@ -10,6 +10,7 @@
 	text-align: center;
 	margin-top: 90px;
 	padding: 0;
+	font-size: 30px;
 	
 }
 .sign_up {
@@ -31,8 +32,15 @@
 	z-index: 0;
 	text-align: center;
 	position: relative;
-	height: 400px;
+	height: 350px;
 	overflow: scroll;
+}
+.center_div {
+	text-align: center;
+	margin-top: 20px;
+}
+a {
+	text-decoration: none;
 }
 /*#meal_title {
 	z-index: 1;
