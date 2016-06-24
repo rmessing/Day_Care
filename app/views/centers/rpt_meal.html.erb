@@ -1,27 +1,11 @@
 
-<div class="reports">
-	<% @children.each do |child| %>
-		<br><br>
-
-		<%= child.fname %>
-		<%= child.mname %>
-		<%= child.lname %>
-
-		<br>
-		<% child.handoffs.each do |handoff| %>
-
-			<%= handoff.attend %>
-			<%= handoff.created_at %>
-			<br>
-		<% end %>
-		<br>
-	<% end %>
-</div>
-
 
 <div class="reports">
+
+<h1> Meal Counts by Child </h1>
+
 	<% @children.each do |child| %>
-		
+		<br>
 		<%= child.fname %>
 		<%= child.mname %>
 		<%= child.lname %>
@@ -32,7 +16,7 @@
 		<% @pm_snack = 0 %>
 		<% @supper = 0 %>
 		<% @late_snack = 0 %>
-	<br>
+	
 		<% child.meals.each do |meal| %>
 
 			<% if meal.breakfast %>
@@ -54,7 +38,6 @@
 				<% @late_snack += 1 %>
 			<% end %>
 			
-			<br>
 		<% end %>
 
 		<br><br>
@@ -72,9 +55,7 @@
 		<%= "Late Snack:" %>
 		<%= @late_snack %>
 
-		<br><br>
+		<br>
 	<% end %>
 	<%= button_to "Center Home", center_path(@center), method: :get %>
 </div>
-
-	

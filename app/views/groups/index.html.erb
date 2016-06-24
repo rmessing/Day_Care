@@ -1,2 +1,18 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<div class="title_center">
+	<H1> Select a Class </H1>
+</div>
+
+<div class="reports">
+
+	<% @groups.each do |group| %>
+
+		<a href="<%= edit_group_path(group.id) %>"
+			<h3><%= group.name %></h3>
+		</a>
+		<br>
+		
+	<% end %>
+	<br>
+	<%= button_to "Center Home", center_path(@center), method: :get %>
+</div>
+

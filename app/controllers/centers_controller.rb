@@ -1,17 +1,38 @@
 class CentersController < ApplicationController
   def index_family
     @group = Group.all
+    @center = current_center
   end
 
   def index_teacher
     @centers = Center.all
     @group = Center.all
+    @center = current_center
   end
 
   def index_group
     @teachers = Teacher.all
     @centers = Center.all
-    @groups = Center.all
+    @groups = Group.all
+    @center = current_center
+  end
+
+  def rpt_attend
+    @centers = Center.all
+    @meals = Meal.all
+    @groups = Group.all
+    @teachers = Teacher.all
+    @handoffs = Handoff.all
+    @children = Child.all
+  end
+
+   def rpt_meal
+    @centers = Center.all
+    @meals = Meal.all
+    @groups = Group.all
+    @teachers = Teacher.all
+    @handoffs = Handoff.all
+    @children = Child.all
   end
 
   def index
@@ -33,6 +54,7 @@ class CentersController < ApplicationController
 
   def new
     @center = Center.new
+    @group = Group.find(params[:id])
   end
 
   def create
@@ -66,4 +88,5 @@ class CentersController < ApplicationController
   def center_params
     params.require(:center).permit(:name, :email, :password, :breakfast, :am_snack, :lunch, :pm_snack, :supper, :late_snack)
   end
+
 end

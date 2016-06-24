@@ -1,2 +1,28 @@
 <h1>Groups#new</h1>
 <p>Find me in app/views/groups/new.html.erb</p>
+
+<div class="sign_up">
+	<h2>Create New Class</h2>
+
+	 <%= form_for Group.new do |f| %>
+
+			<%= f.label :Group_Name %>
+			<br>
+			<%= f.text_field :name %>
+			<br>
+			<%= f.label :Select_Teacher %>
+			<br>
+			<%= f.collection_select :teacher_id, @teachers, :id, :name, include_blank: true %>
+			
+			<br>
+			<br>
+				
+	<%=f.submit "Create Class" %>
+	<br>
+
+	<%end%>
+	<br>
+	<br>
+	
+	<%= button_to "Logout", center_log_out_path, method: :delete %>
+</div>

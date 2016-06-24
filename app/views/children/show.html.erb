@@ -1,2 +1,24 @@
-<h1>Children#show</h1>
-<p>Find me in app/views/children/show.html.erb</p>
+
+<div id="attach_parent">
+	<% if @child.parents.length != 0 %>
+	<h3> Registered Parents for 
+		<%= @child.fname %> 
+		<%= @child.mname %> 
+		<%= @child.lname %>:</h3>
+	<% end %>
+
+	<% @child.parents.each do |parent| %>
+		<%= parent.name %><br>
+	<% end %>
+
+
+	<h1> <%= "Add a guardian to" %> <%= @child.fname %><%= "'s family:" %> </h1>
+
+
+	<%= form_for Family.new do |f| %>
+
+		<%= f.hidden_field :child_id, :value => @child.id %>
+		<%= f.collection_select :parent_id, @parents, :id, :name, include_blank: true %>
+		<%= f.submit "Select a Parent" %>
+	<% end %>
+</div>

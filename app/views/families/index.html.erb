@@ -1,0 +1,19 @@
+
+<div class="title_center"> 
+	<h1> Child Management </h1>
+</div>
+
+<div class="reports">
+
+	<h2> Select Child </h2>
+
+	<% @children.each do |child| %>
+
+		<a href="<%= child_path(child.id) %>">
+		<h3><%= child.fname %>
+			<%= child.mname %>
+			<%= child.lname %></h3>
+		</a>
+
+	<% end %>
+</div>

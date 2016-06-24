@@ -1,0 +1,23 @@
+
+<div class="reports">
+
+<h1> Attendance </h1>
+
+	<% @children.each do |child| %>
+		<br><br>
+
+		<%= child.fname %>
+		<%= child.mname %>
+		<%= child.lname %>
+
+		<br>
+		<% child.handoffs.each do |handoff| %>
+
+			<%= handoff.attend %>
+			<%= handoff.created_at %>
+			<br>
+		<% end %>
+		<br>
+	<% end %>
+	<%= button_to "Center Home", center_path(@center), method: :get %>
+</div>

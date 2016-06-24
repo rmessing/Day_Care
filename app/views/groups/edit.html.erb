@@ -1,2 +1,33 @@
-<h1>Teachers#edit</h1>
-<p>Find me in app/views/teachers/edit.html.erb</p>
+<div class="title_center">
+	<h1> Group Update/Delete <h1>
+</DIV>
+
+<div class="reports">
+	<%= form_for @group do |f| %>
+
+			<%= f.text_field :name %>
+			<%= f.label :class %>
+			<br>
+			<%= f.collection_select :teacher_id, @teachers, :id, :name, include_blank: true %>
+			<%= f.label :Teacher %>
+			<br>
+				
+	<%=f.submit "Update Class/Teacher Names" %>
+	<% end %>
+
+	<%= link_to "Delete Class", group_path(@group), method: :delete %>
+	<%= link_to "Center Home", center_path(@center), method: :get %>
+	
+<% if @group.children.first %>
+	<h5><%= "Child list for class: " %><%= @group.name %></h5>
+<% end %>
+
+	<% @group.children.each do |child| %>
+		<%= child.fname %>
+		<%= child.mname %>
+		<%= child.lname %>
+	<% end %>
+</div>
+
+
+		

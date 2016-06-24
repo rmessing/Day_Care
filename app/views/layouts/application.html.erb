@@ -22,12 +22,11 @@
 			<img id="back_hand" src="/assets/crayons.jpg">
 		</div>
 
-		<div id="flash">
-			 <%= flash[:notice] if flash[:notice] %> 
-			 <%= flash[:alert] if flash[:alert] %>
-		 </div>
-
 		 <%= yield %>
 
+<div id="flash">
+	 <%= flash[:notice] if flash[:notice] %> 
+	 <%= flash[:alert] if flash[:alert] %>
+</div>
 	</body>
 </html>

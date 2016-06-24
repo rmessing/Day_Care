@@ -8,7 +8,9 @@
 }
 .title_center {
 	text-align: center;
-	margin-top: 75px;
+	margin-top: 90px;
+	padding: 0;
+	
 }
 .sign_up {
 	text-align: center;
@@ -25,5 +27,16 @@
 	text-align: center;
 }
 .reports {
+	margin-top: 0;
+	z-index: 0;
 	text-align: center;
+	position: relative;
+	height: 400px;
+	overflow: scroll;
 }
+/*#meal_title {
+	z-index: 1;
+	margin-top: 100px;
+	position: fixed;
+	text-align: center;
+}*/

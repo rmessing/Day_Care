@@ -77,7 +77,7 @@ class SessionsController < ApplicationController
     if @center && @center.authenticate(params[:session][:password])
 
 
-      flash[:notice] = "Welcome #{@center.name}!"
+      # flash[:notice] = "Welcome #{@center.name}!"
 
       
       session[:center_id] = @center.id

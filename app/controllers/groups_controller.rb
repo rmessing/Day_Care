@@ -1,5 +1,10 @@
 class GroupsController < ApplicationController
   def index
+    @groups = Group.all
+    @teachers = Teacher.all 
+    @center = current_center
+    # @group = Group.find(params[:id])
+    # @teacher = Teacher.find(params[:id])
   end
 
   def view
@@ -42,9 +47,16 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @groups = Group.all
+    @group = Group.find(params[:id])
+    @teachers = Teacher.all
+    @center = current_center
   end
 
   def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    redirect_to (:back)
   end
 
   def destroy

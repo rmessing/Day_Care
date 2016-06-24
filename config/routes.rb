@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'families/new'
+
+  get 'families/create'
+
+  get 'families/update'
+
+  get 'families/edit'
+
+  get 'families/destroy'
+
+  get 'families/index'
+
+  get 'families/show'
+
   # post "/meals" => "groups#view"
   get "/meals/new" => "meals#new"
   post "/meals/new" => "groups#view"
@@ -10,6 +24,8 @@ Rails.application.routes.draw do
   get "/teacherc/" => "centers#index_teacher"
   get "/groupc/" => "centers#index_group"
 
+  get "/rpt_attend/" => "centers#rpt_attend"
+  get "/rpt_meal/" => "centers#rpt_meal"
 
   resources :centers
   resources :children
@@ -18,6 +34,7 @@ Rails.application.routes.draw do
   resources :meals
   resources :parents
   resources :teachers
+  resources :families
 
   root "home#index"
 
