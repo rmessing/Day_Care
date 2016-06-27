@@ -3,10 +3,9 @@ class GroupsController < ApplicationController
     @groups = Group.all
     @teachers = Teacher.all 
     @center = current_center
-    # @group = Group.find(params[:id])
-    # @teacher = Teacher.find(params[:id])
   end
 
+# detecting no group select error before system abbend.
   def view
     if params[:group][:id] == ""
       flash[:notice] = "First select your class."
@@ -18,12 +17,14 @@ class GroupsController < ApplicationController
 
   def show
     @teacher = current_teacher
+
+  # accounting for nested or unnested params
     if params[:group] && params[:group][:id]
       @group = Group.find(params[:group][:id])
     else 
       @group = Group.find(params[:id])
     end
-    # binding.pry
+  #
     if params[:date]
       @date = DateTime.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
     else
@@ -60,8 +61,9 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-   Group.find(params[:id]).destroy
-   redirect_to (:back)
+   @group = Group.find(params[:id])
+   @group.destroy
+   redirect_to groups_path, method: :get
   end
 
   private

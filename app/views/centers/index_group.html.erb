@@ -1,27 +1,21 @@
 
 
 <div class="sign_up">
-	<h2>Create New Class</h2>
+<br>
+	<h1>Create New Class</h1>
 
 	 <%= form_for Group.new do |f| %>
 
-			<%= f.label :Group_Name %>
-			<br>
-			<%= f.text_field :name %>
-			<br>
-			<%= f.label :Select_Teacher %>
-			<br>
+			<%= f.label :Class_Name %><br>
+			<%= f.text_field :name %><br>
+			<%= f.label :Select_Teacher %><br>
 			<%= f.collection_select :teacher_id, @teachers, :id, :name, include_blank: true %>
-			
+			<br><br>
+			<%=f.submit "Create Class", :class => 'f_submit'  %>
 			<br>
-			<br>
-				
-	<%=f.submit "Create Class" %>
-	<br>
-
 	<%end%>
+	<br><br><br>
+	<%= button_to "Edit/Delete Class", groups_path, class: 'button_c', method: :get %>
 	<br>
-	<br>
-	<%= button_to "Edit/Delete Class", groups_path, method: :get %>
-	<%= button_to "Center Home", center_path(@center), method: :get %>
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 </div>

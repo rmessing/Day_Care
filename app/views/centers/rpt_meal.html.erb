@@ -1,13 +1,17 @@
-<div class="title_center"> Meal Counts by Child </div>
+<!-- This report counts the number of meals for each child by meal type. -->
+
+<div class="title_center"> 
+	<h2> Meal Counts by Child </h2>
+</div>
 <br>
 <div class="reports">
-
 	<% @children.each do |child| %>
-		<br>
+		
+		<h3>
 		<%= child.fname %>
 		<%= child.mname %>
 		<%= child.lname %>
-
+		</h3>
 		<% @breakfast = 0 %>
 		<% @am_snack = 0 %>
 		<% @lunch = 0 %>
@@ -38,8 +42,6 @@
 			
 		<% end %>
 
-		<br><br>
-
 		<%= "Breakfast:" %> 
 		<%= @breakfast %>
 		<%= "AM Snack:" %>
@@ -58,5 +60,5 @@
 </div>
 
 <div class="center_div">
-	<%= button_to "Center Home", center_path(@center), method: :get %>
+	<%= button_to "Center Home", center_path(@center), class: "button_c", method: :get %>
 </div>

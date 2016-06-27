@@ -1,7 +1,11 @@
+<!-- The admin selects the child's parent which enters the parent_id and child_id into the family join table. -->
 
 <div id="attach_parent">
+
+<!-- If child has no parents in the db yet, "Registered parents for..." is not displayed. -->
+	<br>
 	<% if @child.parents.length != 0 %>
-	<h3> Registered Parents for 
+		<h3> Registered Parents for 
 		<%= @child.fname %> 
 		<%= @child.mname %> 
 		<%= @child.lname %>:</h3>
@@ -10,15 +14,17 @@
 	<% @child.parents.each do |parent| %>
 		<%= parent.name %><br>
 	<% end %>
+	<br>
 
-
-	<h1> <%= "Add a guardian to" %> <%= @child.fname %><%= "'s family:" %> </h1>
-
+	<h1> <%= "Add a parent to" %> <%= @child.fname %><%= "'s family." %> </h1>
 
 	<%= form_for Family.new do |f| %>
-
 		<%= f.hidden_field :child_id, :value => @child.id %>
 		<%= f.collection_select :parent_id, @parents, :id, :name, include_blank: true %>
-		<%= f.submit "Select a Parent" %>
-	<% end %>
+		<%= f.submit "Select a Parent", :class => 'f_submit'  %>
+	<% end %><br>
+	
+	<div class="center_div">
+		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
 </div>

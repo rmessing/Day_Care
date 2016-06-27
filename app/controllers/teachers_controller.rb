@@ -21,10 +21,9 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-      # session[:teacher_id] = @teacher.teacher_id
-      flash[:notice] = "New Teacher is created!"
+       flash[:notice] = "New Teacher is created!"
     else
-      flash[:notice] = "New Teacher was not created; try again."
+       flash[:notice] = "New Teacher was not created; try again."
     end
     redirect_to (:back)
   end

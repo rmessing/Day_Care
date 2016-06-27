@@ -29,6 +29,7 @@ class FamiliesController < ApplicationController
 
   def index
     @children = Child.all
+    @center = current_center
   end
 
   def show

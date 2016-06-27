@@ -1,33 +1,41 @@
+<!-- Admin can update or delete a class (group) from this page. -->
+
 <div class="title_center">
-	<h1> Group Update/Delete <h1>
-</DIV>
+	<h3> Class Update/Delete <h3>
+</div>
 
 <div class="reports">
 	<%= form_for @group do |f| %>
-
-			<%= f.text_field :name %>
-			<%= f.label :class %>
-			<br>
-			<%= f.collection_select :teacher_id, @teachers, :id, :name, include_blank: true %>
-			<%= f.label :Teacher %>
-			<br>
-				
-	<%=f.submit "Update Class/Teacher Names" %>
+			<%= f.label :change_class_name %><br>
+			<%= f.text_field :name %><br><br>
+			<%= f.label :change_teacher %><br>
+			<%= f.collection_select :teacher_id, @teachers, :id, :name, include_blank: true %><br><br>
+			
+			<%= f.submit "Submit Changes", :class => 'f_submit'  %>
 	<% end %>
 
-	<%= link_to "Delete Class", group_path(@group), method: :delete %>
-	<%= link_to "Center Home", center_path(@center), method: :get %>
-	
-<% if @group.children.first %>
-	<h5><%= "Child list for class: " %><%= @group.name %></h5>
-<% end %>
+<!-- If class has no children, the text "Child list for class..." is not displayed. -->
 
-	<% @group.children.each do |child| %>
-		<%= child.fname %>
-		<%= child.mname %>
-		<%= child.lname %>
+	<% if @group.children.first %>
+		<h2><%= "Children in class: " %><%= @group.name %></h2>
 	<% end %>
+	<div class="group_edit">
+		<% @group.children.each do |child| %>
+			<br>
+			<%= child.fname %>
+			<%= child.mname %>
+			<%= child.lname %>
+		<% end %>
+	</div>
 </div>
 
+<div class="center_div">
+	<div class="left_button">
+		<%= button_to "Delete Class", group_path(@group.id), class: 'button_c', method: :delete %>
+	</div>
+	<div class="right_button">
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
+</div>
 
 		

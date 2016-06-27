@@ -4,11 +4,12 @@
 
 #center_show {
 	text-align: center;
-	margin-top: 125px;
+	margin-top: 115px;
 }
 .title_center {
 	text-align: center;
 	margin-top: 90px;
+	margin-bottom: -25px;
 	padding: 0;
 	font-size: 30px;
 	
@@ -23,17 +24,21 @@
 }
 #family_forms {
 	width: 30%;
-	margin: 50px 34% 0 36%;
-}#center_logout {
+	margin: -20px 33% 0 37%;
+}
+#center_logout {
 	text-align: center;
 }
 .reports {
 	margin-top: 0;
+	margin-left: 10px;
+	margin-right: -10px;
 	z-index: 0;
 	text-align: center;
 	position: relative;
-	height: 350px;
+	height: 300px;
 	overflow: scroll;
+	/*background-color: #e7e7e7;*/
 }
 .center_div {
 	text-align: center;
@@ -42,9 +47,107 @@
 a {
 	text-decoration: none;
 }
-/*#meal_title {
-	z-index: 1;
-	margin-top: 100px;
-	position: fixed;
-	text-align: center;
+.left_button {
+	float: left;
+	margin-left: 37%;
+	
+}
+.right_button {
+	float: right;
+	margin-right: 35%;
+}
+.report_line {
+	font-size: 30px;
+}
+/*.f_submit {
+	background-color: yellow;
+	width: 60px;
+	height: 20px;
+	border-radius: 50%;
 }*/
+.group_edit {
+	margin-top: -20px;
+}
+.homediv {
+	text-align: center;
+	margin-top: 180px;
+}
+
+.backimg {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	bottom: 0;
+	z-index: -999;
+	
+}
+#back_hand {
+	width: 100vw;
+	height: 100vh;
+	opacity: 1;
+}
+.user {
+	display: inline-block;
+	position: relative;
+	
+}
+#midpic {
+	margin: 0 30px 0 30px;
+}
+.home {
+	border-radius: 50%;
+}
+#flash {
+	position: fixed;
+	/*margin-left: 150px;
+	margin-top: -50px;*/
+	/*background-color: rgb(216,216,216);*/
+	width: 25%;
+	margin-left: 15%;
+	margin-right: 60%;
+	/*margin-bottom: 400px;*/
+	height: 35px;
+	z-index: 999;
+}
+.button_t {
+    background-color: #f44336; /* Green */
+    border-radius: 50%;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button_p {
+    background-color: #008CBA; /* Green */
+    border-radius: 50%;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button_c {
+    background-color: #4CAF50; /* Green */
+    border-radius: 50%;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#attend_rpt {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#meal_rpt {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#child_bold {
+	font-weight: bold;
+}

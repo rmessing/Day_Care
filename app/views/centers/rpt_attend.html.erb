@@ -1,26 +1,28 @@
+<!-- Report lists all handoffs (pickups and dropoffs) for each child. -->
 
-<div class="title_center"> Attendance </div>
+<div class="title_center"> 
+	<h2> Attendance </h2>
+</div>
 
 <div class="reports">
 
 	<% @children.each do |child| %>
 		<br>
-
+		<div id="attend_rpt">
 		<%= child.fname %>
 		<%= child.mname %>
 		<%= child.lname %>
-
+		</div>
 		<br>
 		<% child.handoffs.each do |handoff| %>
-
 			<%= handoff.attend %>
-			<%= handoff.created_at %>
-			<br>
+			<%= ":" %>
+			<%= handoff.created_at %><br>
 		<% end %>
 		<br>
 	<% end %>
 </div>
 
 <div class="center_div">
-	<%= button_to "Center Home", center_path(@center), method: :get %>
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 </div>

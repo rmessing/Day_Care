@@ -2,18 +2,20 @@
 <html>
 	<head>
 
-	  <title>Myapp</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
-	    
-	  <meta charset="utf-8">
-	  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	  <link rel="stylesheet" href="/resources/demos/style.css">
-	 
-
+		  <title>DayCare</title>
+		  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		  <%= csrf_meta_tags %>
+		    
+		  <meta charset="utf-8">
+		  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		  <link rel="stylesheet" href="/resources/demos/style.css">
+		 
+		  <link rel="icon" 
+			    type="image/png" 
+			    href="assets/favicon.ico">
 	</head>
 
 	<body>
@@ -24,9 +26,7 @@
 
 		 <%= yield %>
 
-<div id="flash">
-	 <%= flash[:notice] if flash[:notice] %> 
-	 <%= flash[:alert] if flash[:alert] %>
-</div>
+
+
 	</body>
 </html>

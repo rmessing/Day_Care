@@ -6,6 +6,7 @@ class ChildrenController < ApplicationController
   def show
     @child = Child.find(params[:id])
     @parents = Parent.all
+    @center = current_center
   end
 
   def new
@@ -17,7 +18,7 @@ class ChildrenController < ApplicationController
     if @child.save
       flash[:notice] = "Welcome!"
     else
-    flash[:alert] = "There was a problem creating a new parent. Please try again."
+    flash[:alert] = "There was a problem creating a new child. Please try again."
     end
     redirect_to (:back)
   end

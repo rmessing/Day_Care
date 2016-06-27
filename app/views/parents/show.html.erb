@@ -1,26 +1,31 @@
-	<!-- Form for child handoffs -->
+<!-- Parent selects drop off or pick up when the child arrives or departs from the center. -->
+
+<div class="title_center">
+	<h1> Handoffs </h1>
+</div>
 
 <div class="reports">
-<h1> Handoffs </h1>
-<% @parent.children.each do |child| %>
-	<%= form_for @handoff do |f| %>
-		
-		<%= child.fname %>
-		<%= child.mname %>
-		<%= child.lname %>
-		<br>
-		<%= f.radio_button(:attend, "arrive") %>
-		<%= f.label(:handoff_arrive, "drop off") %>
-		<%= f.radio_button(:attend, "depart") %>
-		<%= f.label(:handoff_depart, "pick up") %>
-		<%= f.hidden_field :child_id, :value => child.id %>
-		<%= f.button :submit %>
-		<br>
-	<% end %>
-<% end %>
-<br>
-<%= button_to "Logout", parent_log_out_path, method: :delete %>
 
+	<% @parent.children.each do |child| %>
+		<%= form_for @handoff do |f| %>
+			<br>
+			<%= child.fname %>
+			<%= child.mname %>
+			<%= child.lname %>
+			<br>
+			<%= f.radio_button(:attend, "arrive") %>
+			<%= f.label(:handoff_arrive, "drop off") %>
+			<%= f.radio_button(:attend, "depart") %>
+			<%= f.label(:handoff_depart, "pick up") %>
+			<%= f.hidden_field :child_id, :value => child.id %>
+			<%= f.button :submit, :class => 'f_submit'  %>
+			
+		<% end %>
+	<% end %><br>
+</div>
+
+<div class="center_div">
+		<%= button_to "Logout", parent_log_out_path, class: 'button_p', method: :delete %>
 </div>
 
 

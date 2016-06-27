@@ -1,32 +1,20 @@
 
 <div class="sign_up">
-	<h2>Create New Teacher</h2>
+<br><br>
+	<h1>Create New Teacher</h1>
 
 	 <%= form_for Teacher.new do |f| %>
-
-			<%= f.label :Teacher_Name %>
-			<br>
-			<%= f.text_field :name %>
-			<br>
-			<%= f.label :Teacher_email %>
-			<br>
+			<%= f.label :Teacher_Name %><br>
+			<%= f.text_field :name %><br>
+			<%= f.label :Teacher_email %><br>
 			<%= f.text_field :email %>
-			
-			<% f.hidden_field :center_id, :value => 1 %>
-			<br> 
-			<%= f.label :Teacher_Password %>
-			<br>
-			<%= f.text_field :password %>
-			<br>
-			
-			<br>
-				
-	<%=f.submit "Create Teacher" %>
-
+			<% f.hidden_field :center_id, :value => 1 %><br> 
+			<%= f.label :Teacher_Password %><br>
+			<%= f.text_field :password %><br><br>		
+			<%=f.submit "Create Teacher", :class => 'f_submit'  %>
 	<%end%>
 	<br>
-	<%= button_to "Center Home", center_path(@center), method: :get %>
-	<%= button_to "Logout", teacher_log_out_path, method: :delete %>
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 </div>
 
 

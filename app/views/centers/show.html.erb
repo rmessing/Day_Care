@@ -1,22 +1,20 @@
+<!-- This is the landing/home page for the center admin. -->
 
 <div id="center_show">
-<h1> Day Care Center </h1>
-<h1> Operations </h1>
+	<h1> Day Care Center </h1>
+	<h1> Operations </h1>
 
 
-<h2> Reports </h2>
-<%= link_to "Attendance", rpt_attend_path %><br>
-<%= link_to "Meals", rpt_meal_path %><br><br>
+	<h2> Reports </h2>
+		<%= link_to "Attendance", rpt_attend_path %><br>
+		<%= link_to "Meals", rpt_meal_path %><br><br>
 
-<h2> People </h2>
+	<h2> People </h2>
+		<%= link_to "Family", familyc_path %>
+		<%= link_to "Teacher", teacherc_path %>
+		<%= link_to "Class", groupc_path %><br>
 
-<%= link_to "Family", familyc_path %>
-
-<%= link_to "Teacher", teacherc_path %>
-
-<%= link_to "Class", groupc_path %><br>
-<h3> sign up, profile, update, delete </h3>
-
-<%= button_to "Logout", center_log_out_path, method: :delete %>
-
+	<h3> sign up, update, delete </h3>
+		
+	<%= button_to "Logout", center_log_out_path, class: 'button_c', method: :delete %>
 </div>

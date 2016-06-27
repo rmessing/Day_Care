@@ -1,48 +1,46 @@
 <div class="title_center">
-	<br>
 	<h1> Family <h1>
 </div>
+
+<!-- Form for inputting a new parent. -->
 
 <div id="family_forms">
 	<div class="parent_child">
 		<%= form_for Parent.new do |f| %>
-
 		<%= f.label :Parent_Name %><br>
 		<%= f.text_field :name  %><br>
 		<%= f.label :Parent_email %><br>
 		<%= f.text_field :email  %><br>
 		<%= f.label :Parent_Password %><br>
 		<%= f.text_field :password  %><br><br>
-
-		<%= f.submit "Create Parent" %>
+		<%= f.submit "Create Parent", :class => 'f_submit' %>
 		<% end %>
 	</div>
 
+<!-- Form for inputting a new child. -->
 
 	<div class="parent_child">
 		<%= form_for Child.new do |f| %>
-		
-		<%= f.label :First_Name %><br>
+		<%= f.label :Child_First_Name %><br>
 		<%= f.text_field :fname  %><br>
-		<%= f.label :Middle_Name %><br>
+		<%= f.label :Child_Middle_Name %><br>
 		<%= f.text_field :mname  %><br>
-		<%= f.label :Last_Name %><br>
+		<%= f.label :Child_Last_Name %><br>
 		<%= f.text_field :lname  %><br>
 		<%= f.label :Meal_Subsidy %><br>
 		<%= f.select :food_subsidy, ['None', 'Free', 'Reducted'] %><br>
-
 		<%= f.label :Class_Select %><br>
-
 		<%= f.collection_select :group_id, Group.all, :id, :name, include_blank: true %><br><br>
-		<%= f.submit "Create Child" %>
-		<% end %>
+		<%= f.submit "Create Child", :class => 'f_submit' %>
+		<% end %><br>
 	</div>
-<div id="center_logout">
-	<%= button_to "Create Family", families_path, method: :get %>
-	<%= button_to "Center Home", center_path(@center), method: :get %>
 </div>
-
-	
+<div class="center_div">
+	<div class="left_button">
+		<%= button_to "Make Family", families_path, class: 'button_c', method: :get %>
+	</div>
+	<div class="right_button">	
+		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
 </div>
-
 

@@ -44,6 +44,7 @@ class CentersController < ApplicationController
     @teachers = Teacher.all
     @handoffs = Handoff.all
     @children = Child.all
+    @center = current_center
   end
 
   def show

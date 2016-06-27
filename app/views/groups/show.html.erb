@@ -1,57 +1,59 @@
-
-
+<!-- A teacher uses this page to account for each meal the child has on any day. New meal records can be created and updated using the same form on this one page. -->
 
 <div id="meal_form">
 
-<h1> Meal Accounting </h1>
-<h1> for <%= @date.strftime("%m/%d/%y") %></h1>
+	<h1> Meal counts for class: <%= @group.name %> </h1>
+	<h1> on <%= @date.strftime("%m/%d/%y") %></h1>
 
-<%= form_tag group_meals_path(@group) do %>
-	<%= select_date(date = @date, options = {}, html_options = {}) %>
-	<%= submit_tag "Select Meals Date" %>
-<% end %>
-<br>
-
-<% @group.children.each do |child| %>
-	
+	<%= form_tag group_meals_path(@group) do %>
+		<%= select_date(date = @date, options = {}, html_options = {}) %>
+		<%= submit_tag "Select Meals Date" %>
+	<% end %>
 	<br>
-	<% if child.meals.where(meal_date: @date).first %>
-		<% @meal = child.meals.where(meal_date: @date).first %>
-	<% else %>
-		<% @meal = Meal.new %>
-	<% end %>
 
-	<%= form_for @meal do |f| %>
-	<%= f.hidden_field :meal_date, value: @date %>
-	
-		<%= child.fname %>
-		<%= child.mname %>
-		<%= child.lname %>
+	<% @group.children.each do |child| %>
+		
+<!-- If a meal record for the selected date already exists, then do an update, if not, then create a new meal. -->
 
-		<%= f.check_box(:breakfast)%>
-		<%= label_tag(:breakfast, "Breakfast") %>
-
-		<%= f.check_box(:am_snack) %>
-		<%= label_tag(:am_snack, "AM Snack") %>
-
-		<%= f.check_box(:lunch) %>
-		<%= label_tag(:lunch, "Lunch") %>
-
-		<%= f.check_box(:pm_snack) %>
-		<%= label_tag(:pm_snack, "PM Snack") %>
-
-		<%= f.check_box(:supper) %>
-		<%= label_tag(:supper, "Supper") %>
-
-		<%= f.check_box(:late_snack) %>
-		<%= label_tag(:late_snack, "Late Snack") %>
-
-		<%= f.hidden_field :teacher_id, :value => @teacher.id %>
-		<%= f.hidden_field :child_id, :value => child.id %>
-		<%= f.button :submit %>
 		<br>
+		<% if child.meals.where(meal_date: @date).first %>
+			<% @meal = child.meals.where(meal_date: @date).first %>
+		<% else %>
+			<% @meal = Meal.new %>
+		<% end %>
+
+		<%= form_for @meal do |f| %>
+		<%= f.hidden_field :meal_date, value: @date %>
+			<div id="child_bold">
+				<%= child.fname %>
+				<%= child.mname %>
+				<%= child.lname %>
+			</div>
+
+			<%= f.check_box(:breakfast)%>
+			<%= label_tag(:breakfast, "Breakfast") %>
+
+			<%= f.check_box(:am_snack) %>
+			<%= label_tag(:am_snack, "AM Snack") %>
+
+			<%= f.check_box(:lunch) %>
+			<%= label_tag(:lunch, "Lunch") %>
+
+			<%= f.check_box(:pm_snack) %>
+			<%= label_tag(:pm_snack, "PM Snack") %>
+
+			<%= f.check_box(:supper) %>
+			<%= label_tag(:supper, "Supper") %>
+
+			<%= f.check_box(:late_snack) %>
+			<%= label_tag(:late_snack, "Late Snack") %>
+
+			<%= f.hidden_field :teacher_id, :value => @teacher.id %>
+			<%= f.hidden_field :child_id, :value => child.id %>
+			<%= f.button :submit, class: 'f_submit' %>
+			<br>
+		<% end %>
 	<% end %>
-<% end %>
-<br>
-<%= button_to "Logout", teacher_log_out_path, method: :delete %>
+	<br>
+	<%= button_to "Logout", teacher_log_out_path, class: 'button_t', method: :delete %>
 </div>

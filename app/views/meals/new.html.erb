@@ -1,13 +1,16 @@
+<!-- Teacher selects their class before meal accounting. -->
+
 
 <div id="meals_group">
-	<h1>Meal Accounting</h1>
+	<h1>Meals Accounting</h1>
 	<br>
-	<p>Select Your Class</p>
-
-	<%= form_tag do %>
-	 	<%= collection_select(:group, :id, Group.all, :id, :name, :prompt => true) %>
-	 	<%= button_to "submit" %>
-	<% end %>
+	<h2>Select Your Class</h2>
+	<div>
+		<%= form_tag do %>
+		 	<%= collection_select(:group, :id, Group.all, :id, :name, :prompt => true) %>
+		 	<%= button_to "submit", :class => 'f_submit' %>
+		<% end %>
+	</div>
  </div>
 
 

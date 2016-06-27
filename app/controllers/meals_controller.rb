@@ -6,15 +6,15 @@ class MealsController < ApplicationController
   end
 
   def new
-    # @group = Group.find(params[:id])
-    @meal = Meal.new
+      @meal = Meal.new
   end
 
   def create
-    # binding.pry
     @meal = Meal.new(meal_params)
       if @meal.save
-        redirect_to group_meals_path(Child.find(params[:meal][:child_id]).group)
+        # redirect_to group_meals_path(Child.find(params[:meal][:child_id]).group)
+        flash[:alert] = "Meals were saved."
+        redirect_to (:back)
       else
         flash[:alert] = "There was a problem recording the meals. Please try again."
         redirect_to (:back)
@@ -28,7 +28,7 @@ class MealsController < ApplicationController
   def update
     @meal = Meal.find(params[:id])
     @meal.update(meal_params)
-    # flash[:notice] = "Meals have been updated."
+    flash[:notice] = "Meals were updated."
     redirect_to (:back)
   end
 

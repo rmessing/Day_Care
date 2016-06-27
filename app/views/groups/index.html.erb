@@ -1,18 +1,19 @@
+<!-- Admin can select a class (group) from this list in order to update or delete the class. -->
+
 <div class="title_center">
-	<H1> Select a Class </H1>
+	<H2> Select a Class </H2>
 </div>
 
 <div class="reports">
-
 	<% @groups.each do |group| %>
-
 		<a href="<%= edit_group_path(group.id) %>"
-			<h3><%= group.name %></h3>
+			<h2><%= group.name %></h2>
 		</a>
 		<br>
-		
 	<% end %>
 	<br>
-	<%= button_to "Center Home", center_path(@center), method: :get %>
 </div>
 
+<div class="center_div">
+		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+</div>
