@@ -10,7 +10,7 @@ class ChildrenController < ApplicationController
   end
 
   def new
-    @child = Child.new
+    # @child = Child.new
   end
 
   def create

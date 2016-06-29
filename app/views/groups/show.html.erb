@@ -29,7 +29,8 @@
 				<%= child.mname %>
 				<%= child.lname %>
 			</div>
-
+			
+			<strong>
 			<%= f.check_box(:breakfast)%>
 			<%= label_tag(:breakfast, "Breakfast") %>
 
@@ -51,6 +52,7 @@
 			<%= f.hidden_field :teacher_id, :value => @teacher.id %>
 			<%= f.hidden_field :child_id, :value => child.id %>
 			<%= f.button :submit, class: 'f_submit' %>
+			</strong>
 			<br>
 		<% end %>
 	<% end %>

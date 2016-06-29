@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
-    @teachers = Teacher.all 
+    @groups = Group.order("name")
     @center = current_center
   end
 
@@ -48,7 +47,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @groups = Group.all
     @group = Group.find(params[:id])
     @teachers = Teacher.all
     @center = current_center

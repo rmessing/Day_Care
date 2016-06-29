@@ -1,10 +1,7 @@
 class FamiliesController < ApplicationController
 
-   def new
-    @children = Child.all
-    @child = Child.find(params[:id])
-    @family = Family.find(params[:id])
-    @families = Family.all
+  def new
+    @family = Family.new
   end
 
   def create
@@ -28,7 +25,8 @@ class FamiliesController < ApplicationController
   end
 
   def index
-    @children = Child.all
+    # @children = Child.all
+    @children = Child.order("lname")
     @center = current_center
   end
 

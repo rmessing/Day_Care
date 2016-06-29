@@ -1,25 +1,26 @@
 <!-- Parent selects drop off or pick up when the child arrives or departs from the center. -->
 
 <div class="title_center">
-	<h1> Handoffs </h1>
+	<h1> Attendance </h1>
 </div>
 
 <div class="reports">
 
 	<% @parent.children.each do |child| %>
 		<%= form_for @handoff do |f| %>
-			<br>
+			<strong class="font_size_names"><br>
 			<%= child.fname %>
 			<%= child.mname %>
 			<%= child.lname %>
-			<br>
+			</strong><br>
+			<strong>
 			<%= f.radio_button(:attend, "arrive") %>
 			<%= f.label(:handoff_arrive, "drop off") %>
 			<%= f.radio_button(:attend, "depart") %>
 			<%= f.label(:handoff_depart, "pick up") %>
 			<%= f.hidden_field :child_id, :value => child.id %>
 			<%= f.button :submit, :class => 'f_submit'  %>
-			
+			</strong>
 		<% end %>
 	<% end %><br>
 </div>

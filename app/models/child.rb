@@ -4,4 +4,5 @@ class Child < ActiveRecord::Base
 	belongs_to :group
 	has_many :families
 	has_many :parents, :through => :families
+	
 end

@@ -1,11 +1,5 @@
 class HandoffsController < ApplicationController
   def index
-    @centers = Center.all
-    @meals = Meal.all
-    @groups = Group.all
-    @teachers = Teacher.all
-    @handoffs = Handoff.all
-    @children = Child.all
   end
 
   def show
