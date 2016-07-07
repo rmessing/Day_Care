@@ -18,10 +18,15 @@
 	</head>
 
 <body>
-	<% if flash[:notice] || flash[:alert] %>
-		<div class="flash">
-			 <%= flash[:notice] if flash[:notice] %> 
-			 <%= flash[:alert] if flash[:alert] %>
+<!-- All negative messages are 'alerts' that display on the left side of the page.  'notices' are positive messages that appear on the right side of the page. -->
+	<% if flash[:alert] %>
+		<div class="alert">
+			 <%= flash[:alert] %>
+		</div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div class="notice">
+			 <%= flash[:notice] %> 
 		</div>
 	<% end %>
 

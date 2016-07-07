@@ -10,13 +10,13 @@ class ChildrenController < ApplicationController
   end
 
   def new
-    # @child = Child.new
+      @child = Child.new
   end
 
   def create
-     @child = Child.new(child_params)
+    @child = Child.new(child_params)
     if @child.save
-      flash[:alert] = "Child #{@child.fname} #{@child.mname} #{@child.lname} is registered!"
+      flash[:notice] = "Child #{@child.fname} #{@child.mname} #{@child.lname} is registered!"
     else
     flash[:alert] = "The child is not registered. Please try again."
     end
