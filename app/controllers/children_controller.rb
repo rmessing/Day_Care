@@ -16,9 +16,9 @@ class ChildrenController < ApplicationController
   def create
      @child = Child.new(child_params)
     if @child.save
-      flash[:notice] = "Welcome!"
+      flash[:alert] = "Child #{@child.fname} #{@child.mname} #{@child.lname} is registered!"
     else
-    flash[:alert] = "There was a problem creating a new child. Please try again."
+    flash[:alert] = "The child is not registered. Please try again."
     end
     redirect_to (:back)
   end
@@ -30,8 +30,12 @@ class ChildrenController < ApplicationController
   end
 
   def destroy
-    Child.find(params[:id]).destroy
+    if Child.find(params[:id]).destroy
+      flash[:notice] = "The child was deleted."
+    else
+      flash[:alert] = "The child was not deleted. Please try again."
     redirect_to (:back)
+    end
   end
 
   private

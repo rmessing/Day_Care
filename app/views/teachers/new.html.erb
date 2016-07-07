@@ -1,18 +1,18 @@
 <!-- When a new teacher is hired, admin creates new teacher on this page. -->
 
 <div class="sign_up">
-	<h2>Create New Teacher</h2>
+	<h1>Teacher</h1>
 
 	 <%= form_for Teacher.new do |f| %>
-			<%= f.label :Teacher_Name %><br>
-			<%= f.text_field :name %><br>
-			<%= f.label :Teacher_email %><br>
-			<%= f.text_field :email %>
-			<% f.hidden_field :center_id, :value => 1 %><br> 
-			<%= f.label :Teacher_Password %><br>
-			<%= f.text_field :password %><br><br>			
-			<%=f.submit "Create Teacher" %>
-	<%end%><br>
+			
+			<%= f.text_field :name, placeholder: "name" %><br><br>
+			
+			<%= f.text_field :email, placeholder: "email" %>
+			<% f.hidden_field :center_id, :value => 1 %><br><br>
+		
+			<%= f.text_field :password, placeholder: "password" %><br><br>			
+			<%= f.submit "Create Teacher" %>
+	<% end %><br>
 	
 	<%= button_to "Logout", teacher_log_out_path, class: 'button_t', method: :delete %>
 </div>

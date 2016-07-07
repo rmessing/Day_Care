@@ -1,11 +1,11 @@
 <!-- To create a family, the admin chooses a child from this list which links the admin to the family creation page. -->
 
 <div class="title_center">
-	<h4>Select Child</h> 
+	<h2>Select Child</h2> 
 	<!-- <h5 id="families_index">(select child)</h5> -->
 </div>
 	
-<div class="reports", style="margin-top: -30px">
+<div class="reports">
 	<% @children.each do |child| %>
 
 		<a href="<%= child_path(child.id) %>">
@@ -16,7 +16,7 @@
 
 	<% end %>
 </div>
-
+<br><br>
 <div class="center_div">
 	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 </div>

@@ -1,8 +1,7 @@
 <!-- A teacher uses this page to account for each meal the child has on any day. New meal records can be created and updated using the same form on this one page. -->
 
 <div id="meal_form">
-
-	<h1> Meal counts for class: <%= @group.name %> </h1>
+	<h1> Meals for class: <%= @group.name %> </h1>
 	<h1> on <%= @date.strftime("%m/%d/%y") %></h1>
 
 	<%= form_tag group_meals_path(@group) do %>
@@ -10,7 +9,8 @@
 		<%= submit_tag "Select Meals Date" %>
 	<% end %>
 	<br>
-
+</div>
+<div class="reports_meals">
 	<% @group.children.each do |child| %>
 		
 <!-- If a meal record for the selected date already exists, then do an update, if not, then create a new meal. -->
@@ -26,28 +26,28 @@
 		<%= f.hidden_field :meal_date, value: @date %>
 			<div id="child_bold">
 				<%= child.fname %>
-				<%= child.mname %>
+				<!-- <%= child.mname %> -->
 				<%= child.lname %>
 			</div>
 			
 			<strong>
 			<%= f.check_box(:breakfast)%>
-			<%= label_tag(:breakfast, "Breakfast") %>
+			<%= label_tag(:breakfast, "breakfast") %>
 
 			<%= f.check_box(:am_snack) %>
-			<%= label_tag(:am_snack, "AM Snack") %>
+			<%= label_tag(:am_snack, "am snack") %>
 
 			<%= f.check_box(:lunch) %>
-			<%= label_tag(:lunch, "Lunch") %>
+			<%= label_tag(:lunch, "lunch") %>
 
 			<%= f.check_box(:pm_snack) %>
-			<%= label_tag(:pm_snack, "PM Snack") %>
+			<%= label_tag(:pm_snack, "pm snack") %>
 
 			<%= f.check_box(:supper) %>
-			<%= label_tag(:supper, "Supper") %>
+			<%= label_tag(:supper, "supper") %>
 
 			<%= f.check_box(:late_snack) %>
-			<%= label_tag(:late_snack, "Late Snack") %>
+			<%= label_tag(:late_snack, "late snack") %>
 
 			<%= f.hidden_field :teacher_id, :value => @teacher.id %>
 			<%= f.hidden_field :child_id, :value => child.id %>
@@ -56,6 +56,8 @@
 			<br>
 		<% end %>
 	<% end %>
-	<br>
+</div>
+
+<div class="center_div">
 	<%= button_to "Logout", teacher_log_out_path, class: 'button_t', method: :delete %>
 </div>

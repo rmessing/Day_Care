@@ -1,6 +1,7 @@
 class TeachersController < ApplicationController
   def index
-    @teacher = Teacher.all
+    @teachers = Teacher.order("name")
+    @center = current_center
   end
 
   def show
@@ -8,7 +9,7 @@ class TeachersController < ApplicationController
     @meal = Meal.new
     @teacher = Teacher.find(params[:id])
     if @teacher != current_teacher
-      flash[:notice] = "You do not have access to that page"
+      flash[:alert] = "You do not have access to this page"
       redirect_to root_path
     end
   end
@@ -21,27 +22,34 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-       flash[:notice] = "New Teacher is created!"
+       flash[:alert] = "Teacher #{@teacher.name} is registered!"
     else
-       flash[:notice] = "New Teacher was not created; try again."
+       flash[:alert] = "A new Teacher was not created - Try Again."
     end
     redirect_to (:back)
   end
 
   def edit
     @teacher = Teacher.find(params[:id])
+    @center = current_center
   end
 
   def update
     @teacher = Teacher.find(params[:id])
-    @teacher.update(teacher_params)
-    flash[:notice] = "Teacher has been updated."
-    redirect_to teacher_path
+    if @teacher.update(teacher_params)
+      flash[:alert] = "Teacher #{@teacher.name} was updated."
+      redirect_to teachers_path, method: :get
+    else
+      flash[:alert] = "Teacher update failed - Try Again."
+      redirect_to (:back)
+    end
   end
 
   def destroy
-    Teacher.find(params[:id]).destroy
-    reidrect_to (:back)
+    if Teacher.find(params[:id]).destroy
+      flash[:alert] = "The teacher was deleted."
+    end
+    redirect_to teachers_path, method: :get
   end
 
   private

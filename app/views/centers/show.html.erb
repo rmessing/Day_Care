@@ -1,20 +1,26 @@
 <!-- This is the landing/home page for the center admin. -->
 
 <div id="center_show">
-	<h1> Day Care Center </h1>
-	<h1> Operations </h1>
+	 <% if flash[:alert] %>
+	    	<div class="notice"><%= flash[:alert] %></div>
+	 <% end %>
+	<div id="center_show2">
+		<h1>  Day Care Center </h1>
+		<h2 id="sub_title"> Administration </h2>
 
 
-	<h2> Reports </h2>
-		<%= link_to "Attendance", rpt_attend_path %><br>
-		<%= link_to "Meals", rpt_meal_path %><br><br>
+		<h2 class="red"> Reports </h2>
+			<strong class="font_size"><%= link_to "Meals", rpt_meal_path %><br></strong>
+			<strong class="font_size"><%= link_to "Attendance", rpt_attend_path %></strong><br>
+			
 
-	<h2> People </h2>
-		<%= link_to "Family", familyc_path %>
-		<%= link_to "Teacher", teacherc_path %>
-		<%= link_to "Class", groupc_path %><br>
+		<h2 class="red"> People </h2>
+			<strong class="font_size"><%= link_to "Family", familyc_path %></strong>
+			<strong class="font_size"><%= link_to "- Teacher -", teacherc_path %></strong>
+			<strong class="font_size"><%= link_to "Class", groupc_path %></strong>
 
-	<h3> sign up, update, delete </h3>
-		
-	<%= button_to "Logout", center_log_out_path, class: 'button_c', method: :delete %>
+		<!-- <h3> sign up, update, delete </h3> -->
+		<br><br><br>
+		<%= button_to "Logout", center_log_out_path, class: 'button_c', method: :delete %>
+	</div>
 </div>

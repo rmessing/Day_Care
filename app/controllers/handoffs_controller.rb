@@ -11,12 +11,11 @@ class HandoffsController < ApplicationController
   def create
      @handoff = Handoff.new(handoff_params)
      if @handoff.save
-      flash[:notice] = "The handoff was recorded!"
-      redirect_to (:back)
+      flash[:alert] = "The handoff was recorded!"
      else
-      flash[:notice] = "The handoff was NOT recorded - Try Again."
-      redirect_to (:back)
+      flash[:alert] = "The handoff was NOT recorded - Try Again."
      end
+     redirect_to (:back)
   end
 
   def edit
@@ -26,7 +25,11 @@ class HandoffsController < ApplicationController
   end
 
   def destroy
-    Handoff.find(params[:id]).destroy
+    if Handoff.find(params[:id]).destroy
+      flash[:alert] = "The handoff has been deleted"
+    else
+      flash[:alert] = "The handoff was not deleted - Try again."
+    end
     redirect_to (:back)
   end
 

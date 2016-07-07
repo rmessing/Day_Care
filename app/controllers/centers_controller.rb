@@ -24,18 +24,13 @@ class CentersController < ApplicationController
 
   def index
     @centers = Center.all
-    @meals = Meal.all
-    @groups = Group.all
-    @teachers = Teacher.all
-    @handoffs = Handoff.all
-    @children = Child.all
     @center = current_center
   end
 
   def show
     @center = Center.find(params[:id])
      if @center != current_center
-      flash[:notice] = "You do not have access to this page."
+      flash[:alert] = "You do not have access to this page."
       redirect_to root_path
     end
   end
@@ -48,7 +43,7 @@ class CentersController < ApplicationController
   def create
     if @center.save
       session[:center_id] = @center.id
-      flash[:notice] = "Welcome!"
+      flash[:alert] = "Welcome!"
       redirect_to centers_path
     else
       flash[:alert] = "There was a problem creating a new center. Please try again."
@@ -63,7 +58,7 @@ class CentersController < ApplicationController
   def update
     @center = Center.find(params[:id])
     @center.update(center_params)
-    flash[:notice] = "Center has been updated."
+    flash[:alert] = "Center has been updated."
     redirect_to center_path
   end
 

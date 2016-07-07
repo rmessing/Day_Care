@@ -7,10 +7,10 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     if @family.save
-      flash[:alert] = "A new guardian was added successfully!"
+      flash[:alert] = "The parent and child are now connected!"
       redirect_to families_path
     else
-      flash[:alert] = "There was a problem creating a parent-child family dependency. Please try again."
+      flash[:alert] = "The parent-child connection failed. Please try again."
       redirect_to (:back)
     end
   end

@@ -1,7 +1,7 @@
 <!-- Parent selects drop off or pick up when the child arrives or departs from the center. -->
 
 <div class="title_center">
-	<h1> Attendance </h1>
+	<h1 id="attend_align"> Attendance </h1>
 </div>
 
 <div class="reports">
@@ -23,7 +23,7 @@
 			</strong>
 		<% end %>
 	<% end %><br>
-</div>
+</div><br><br>
 
 <div class="center_div">
 		<%= button_to "Logout", parent_log_out_path, class: 'button_p', method: :delete %>

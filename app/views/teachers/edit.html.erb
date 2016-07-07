@@ -1,2 +1,29 @@
-<h1>Teachers#edit</h1>
-<p>Find me in app/views/teachers/edit.html.erb</p>
+
+<br>
+<div class="title_center">
+	<h3> Teacher Update/Delete <h3>
+</div><br><br><br>
+
+<div id="teacher_update" class="sign_up">
+	<%= form_for @teacher do |f| %>
+			
+			<%= f.text_field :name, placeholder: "change teacher name" %><br><br>
+			
+			<%= f.text_field :email, placeholder: "change teacher email" %><br><br>
+			
+			<%= f.text_field :password, placeholder: "change teacher password" %><br><br>
+			
+			<%= f.submit "Submit Changes", :class => 'f_submit'  %>
+	<% end %>
+
+</div>
+<br><br><br><br>
+
+<div class="center_div">
+	<div class="left_button">
+		<%= button_to "Delete Teacher", teacher_path(@teacher.id), class: 'button_c', method: :delete %>
+	</div>
+	<div class="right_button">
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
+</div>

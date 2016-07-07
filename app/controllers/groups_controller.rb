@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 # detecting no group select error before system abbend.
   def view
     if params[:group][:id] == ""
-      flash[:notice] = "First select your class."
+      flash[:alert] = "First select your class."
       redirect_to (:back)
     else  
       redirect_to group_path(params[:group][:id])
@@ -16,7 +16,6 @@ class GroupsController < ApplicationController
 
   def show
     @teacher = current_teacher
-
   # accounting for nested or unnested params
     if params[:group] && params[:group][:id]
       @group = Group.find(params[:group][:id])
@@ -39,6 +38,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
+      flash[:alert] = "Class #{@group.name} was formed!"
       redirect_to (:back)
     else
       flash[:alert] = "There was a problem creating a new class. Please try again."
@@ -54,14 +54,23 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    @group.update(group_params)
-    redirect_to (:back)
+    if @group.update(group_params)
+      flash[:alert] = "Class #{@group.name} was updated"
+      redirect_to groups_path, method: :get
+    else
+      flash[:alert] = "Class update failed. Please try again."
+      redirect_to (:back)
+    end
   end
 
   def destroy
-   @group = Group.find(params[:id])
-   @group.destroy
-   redirect_to groups_path, method: :get
+    @group = Group.find(params[:id])
+    if @group.destroy
+      flash[:alert] = "The class was deleted."
+      redirect_to groups_path, method: :get
+    else
+      flash[:alert] = "The class did not delete. Please try again."
+    end
   end
 
   private

@@ -1,2 +1,16 @@
-<h1>Teachers#index</h1>
-<p>Find me in app/views/teachers/index.html.erb</p>
+
+<div class="title_center">
+	<H2> Select a Teacher </H2>
+</div>
+
+<div class="reports">
+	<% @teachers.each do |teacher| %>
+		<h2><a href="<% edit_teacher_path(teacher.id) %>" >
+			<%= teacher.name %></a></h2>
+	<% end %>
+	<br>
+</div>
+
+<div id="teacher_index" class="center_div">
+		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+</div>

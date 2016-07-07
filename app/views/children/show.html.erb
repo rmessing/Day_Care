@@ -22,7 +22,7 @@
 		<%= f.hidden_field :child_id, :value => @child.id %>
 		<%= f.collection_select :parent_id, @parents, :id, :name, include_blank: true %>
 		<%= f.submit "Select a Parent", :class => 'f_submit'  %>
-	<% end %><br>
+	<% end %><br><br><br><br><br>
 	
 	<div class="center_div">
 		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>

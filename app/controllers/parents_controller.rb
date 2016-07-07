@@ -7,7 +7,7 @@ class ParentsController < ApplicationController
   	@handoff = Handoff.new
     @parent = Parent.find(params[:id])
     if @parent != current_parent
-    	flash[:notice] = "You do not have access to that page"
+    	flash[:alert] = "You do not have access to this page"
     	redirect_to root_path
     end
   end
@@ -19,10 +19,9 @@ class ParentsController < ApplicationController
   def create
      @parent = Parent.new(parent_params)
   	if @parent.save
-  	  session[:parent_id] = @parent.id
-  	  flash[:notice] = "Welcome!"
+  	  flash[:alert] = "Parent #{@parent.name} is registered!"
 	  else
-	  flash[:alert] = "There was a problem creating a new parent. Please try again."
+	    flash[:alert] = "New parent was not registered. Please try again."
 	  end
     redirect_to (:back)
   end
@@ -33,14 +32,21 @@ class ParentsController < ApplicationController
 
   def update
   	@parent = Parent.find(params[:id])
-  	@parent.update(parent_params)
-  	flash[:notice] = "Parent has been updated"
-  	redirect_to parents_path
+  	if @parent.update(parent_params)
+  	  flash[:alert] = "Parent #{@parent.name} has been updated"
+    else
+      flash[:alert] = "Parent #{@parent.name} did not update. Please try again."
+    end
+  	redirect_to parents_path, method: :get
   end
 
   def destroy
-  	Parent.find(params[:id]).destroy
-  	redirect_to (:back)
+  	if Parent.find(params[:id]).destroy
+      flash[:alert] = "Parent #{@parent.name} was deleted"
+    else
+      flash[:alert] = "The parent did not delete. Please try again."
+    end
+  	redirect_to parents_path, method: :get
   end
 
   private

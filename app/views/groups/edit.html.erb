@@ -4,7 +4,8 @@
 	<h3> Class Update/Delete <h3>
 </div>
 
-<div class="reports">
+<div  id="group_align" class="sign_up">
+<br><br><br>
 	<%= form_for @group do |f| %>
 			<%= f.label :change_class_name %><br>
 			<%= f.text_field :name %><br><br>
@@ -14,21 +15,9 @@
 			<%= f.submit "Submit Changes", :class => 'f_submit'  %>
 	<% end %>
 
-<!-- If class has no children, the text "Child list for class..." is not displayed. -->
 
-	<% if @group.children.first %>
-		<h2><%= "Children in class: " %><%= @group.name %></h2>
-	<% end %>
-	<div class="group_edit">
-		<% @group.children.each do |child| %>
-			<br>
-			<%= child.fname %>
-			<%= child.mname %>
-			<%= child.lname %>
-		<% end %>
-	</div>
 </div>
-
+<br><br><br><br><br>
 <div class="center_div">
 	<div class="left_button">
 		<%= button_to "Delete Class", group_path(@group.id), class: 'button_c', method: :delete %>
@@ -39,3 +28,4 @@
 </div>
 
 		
+        
