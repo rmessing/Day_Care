@@ -5,16 +5,17 @@
 </div>
 <br>
 
-<% @breakfast = 0 %>
-<% @am_snack = 0 %>
-<% @lunch = 0 %>
-<% @pm_snack = 0 %>
-<% @supper = 0 %>
-<% @late_snack = 0 %>
-<% @total_meals = 0 %>
 
 <div class="reports">
 	<% @children.each do |child| %>
+
+	<% @breakfast = 0 %>
+	<% @am_snack = 0 %>
+	<% @lunch = 0 %>
+	<% @pm_snack = 0 %>
+	<% @supper = 0 %>
+	<% @late_snack = 0 %>
+	<% @total_meals = 0 %>
 		<% child.meals.each do |meal| %>
 			<% if meal.breakfast %>
 				<% @breakfast += 1 %>
@@ -60,14 +61,6 @@
 			<%= @supper %>
 			<%= "Late Snack:" %>
 			<%= @late_snack %>
-
-			<% @breakfast = 0 %>
-			<% @am_snack = 0 %>
-			<% @lunch = 0 %>
-			<% @pm_snack = 0 %>
-			<% @supper = 0 %>
-			<% @late_snack = 0 %>
-			<% @total_meals = 0 %>
 			<br>
 		<% end %>
 
