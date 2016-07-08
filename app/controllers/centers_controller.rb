@@ -43,7 +43,7 @@ class CentersController < ApplicationController
   def create
     if @center.save
       session[:center_id] = @center.id
-      flash[:notice] = "Welcome!"
+      flash[:notice] = "Center #{@center.name} is a new location!"
       redirect_to centers_path
     else
       flash[:alert] = "There was a problem creating a new center. Please try again."
@@ -58,12 +58,16 @@ class CentersController < ApplicationController
   def update
     @center = Center.find(params[:id])
     @center.update(center_params)
-    flash[:notice] = "Center has been updated."
+    flash[:notice] = "Center #{@center.name} has been updated."
     redirect_to center_path
   end
 
   def destroy
-    Center.find(params[:id]).destroy
+    if Center.find(params[:id]).destroy
+      flash[:notice] = "The center has been deleted."
+    else
+      flash[:alert] = "Center #{@center.name} did not delete."
+    end
     redirect_to (:back)
   end
 

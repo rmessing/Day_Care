@@ -5,12 +5,12 @@
 
 <div class="reports">
 	<% @teachers.each do |teacher| %>
-		<h2><a href="<% edit_teacher_path(teacher.id) %>" >
-			<%= teacher.name %></a></h2>
+		<a href="<%= edit_teacher_path(teacher.id) %>" ><h3>
+			<%= teacher.name %></h3></a>
 	<% end %>
 	<br>
 </div>
-
+<br>
 <div id="teacher_index" class="center_div">
 		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 </div>

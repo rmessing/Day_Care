@@ -7,7 +7,7 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     if @family.save
-      flash[:alert] = "The parent and child are now connected!"
+      flash[:notice] = "Parent and child are now connected!"
       redirect_to families_path
     else
       flash[:alert] = "The parent-child connection failed. Please try again."

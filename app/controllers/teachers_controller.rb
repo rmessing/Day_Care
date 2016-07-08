@@ -22,9 +22,9 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-       flash[:alert] = "Teacher #{@teacher.name} is registered!"
+       flash[:notice] = "Teacher #{@teacher.name} is registered!"
     else
-       flash[:alert] = "A new Teacher was not created - Try Again."
+       flash[:alert] = "A new Teacher was not created - Try again."
     end
     redirect_to (:back)
   end
@@ -37,17 +37,19 @@ class TeachersController < ApplicationController
   def update
     @teacher = Teacher.find(params[:id])
     if @teacher.update(teacher_params)
-      flash[:alert] = "Teacher #{@teacher.name} was updated."
+      flash[:notice] = "Teacher #{@teacher.name} was updated."
       redirect_to teachers_path, method: :get
     else
-      flash[:alert] = "Teacher update failed - Try Again."
+      flash[:alert] = "Teacher update failed - Try again."
       redirect_to (:back)
     end
   end
 
   def destroy
     if Teacher.find(params[:id]).destroy
-      flash[:alert] = "The teacher was deleted."
+      flash[:notice] = "The teacher was deleted."
+    else
+      flash[:alert] = "The teacher was not deleted - Try again."
     end
     redirect_to teachers_path, method: :get
   end

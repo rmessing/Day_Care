@@ -18,7 +18,7 @@ class ChildrenController < ApplicationController
     if @child.save
       flash[:notice] = "Child #{@child.fname} #{@child.mname} #{@child.lname} is registered!"
     else
-    flash[:alert] = "The child is not registered. Please try again."
+    flash[:alert] = "The child is not registered. First & last names are required."
     end
     redirect_to (:back)
   end

@@ -19,9 +19,9 @@ class ParentsController < ApplicationController
   def create
      @parent = Parent.new(parent_params)
   	if @parent.save
-  	  flash[:alert] = "Parent #{@parent.name} is registered!"
+  	  flash[:notice] = "Parent #{@parent.name} is registered!"
 	  else
-	    flash[:alert] = "New parent was not registered. Please try again."
+	    flash[:alert] = "New parent was not registered. All fields are required."
 	  end
     redirect_to (:back)
   end
@@ -33,7 +33,7 @@ class ParentsController < ApplicationController
   def update
   	@parent = Parent.find(params[:id])
   	if @parent.update(parent_params)
-  	  flash[:alert] = "Parent #{@parent.name} has been updated"
+  	  flash[:notice] = "Parent #{@parent.name} has been updated"
     else
       flash[:alert] = "Parent #{@parent.name} did not update. Please try again."
     end
@@ -42,9 +42,9 @@ class ParentsController < ApplicationController
 
   def destroy
   	if Parent.find(params[:id]).destroy
-      flash[:alert] = "Parent #{@parent.name} was deleted"
+      flash[:notice] = "Parent #{@parent.name} was deleted"
     else
-      flash[:alert] = "The parent did not delete. Please try again."
+      flash[:alert] = "Parent did not delete. Please try again."
     end
   	redirect_to parents_path, method: :get
   end

@@ -13,7 +13,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
       if @meal.save
         # redirect_to group_meals_path(Child.find(params[:meal][:child_id]).group)
-        flash[:alert] = "Meals were saved."
+        flash[:notice] = "Meals were saved."
       else
         flash[:alert] = "There was a problem recording the meals. Please try again."
     end
@@ -27,7 +27,7 @@ class MealsController < ApplicationController
   def update
     @meal = Meal.find(params[:id])
     if @meal.update(meal_params)
-      flash[:alert] = "Meals were updated."
+      flash[:notice] = "Meals were updated."
     else
       flash[:alert] = "Meals were not updated; try again."
     end

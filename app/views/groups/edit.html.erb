@@ -5,7 +5,7 @@
 </div>
 
 <div  id="group_align" class="sign_up">
-<br><br><br>
+<br><br>
 	<%= form_for @group do |f| %>
 			<%= f.label :change_class_name %><br>
 			<%= f.text_field :name %><br><br>
@@ -14,15 +14,9 @@
 			
 			<%= f.submit "Submit Changes", :class => 'f_submit'  %>
 	<% end %>
-
-
-</div>
-<br><br><br><br><br>
-<div class="center_div">
-	<div class="left_button">
-		<%= button_to "Delete Class", group_path(@group.id), class: 'button_c', method: :delete %>
-	</div>
-	<div class="right_button">
+	<br><br>
+	<%= button_to "Delete Class", group_path(@group.id), class: 'button_c', method: :delete %>
+	<br>
 	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 	</div>
 </div>

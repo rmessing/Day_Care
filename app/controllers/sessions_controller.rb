@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create_parent
     @parent = Parent.find_by_email(params[:session][:email])
     if @parent && @parent.authenticate(params[:session][:password])
-       flash[:alert] = "Welcome #{@parent.name}!"
+       flash[:notice] = "Welcome #{@parent.name}!"
        session[:parent_id] = @parent.id 
 	     redirect_to parent_path(current_parent)
     else
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
   def create_teacher
     @teacher = Teacher.find_by_email(params[:session][:email])
     if @teacher && @teacher.authenticate(params[:session][:password])
-      flash[:alert] = "Welcome #{@teacher.name}!"
+      flash[:notice] = "Welcome #{@teacher.name}!"
       session[:teacher_id] = @teacher.id
       redirect_to new_meal_path
     else

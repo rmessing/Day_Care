@@ -1,4 +1,4 @@
-<!-- Report lists all handoffs (pickups and dropoffs) for each child. -->
+<!-- Report lists all handoffs (pickups and dropoffs) for each child. The child is dropped from the report if no handoffs are on record. -->
 
 <div class="title_center"> 
 	<h2> Attendance </h2>
@@ -7,19 +7,20 @@
 <div class="reports">
 
 	<% @children.each do |child| %>
-		
-		<div id="attend_rpt">
-		<%= child.fname %>
-		<%= child.mname %>
-		<%= child.lname %>
-		</div>
-		<br>
-		<% child.handoffs.each do |handoff| %>
-			<%= handoff.attend %>
-			<%= ":" %>
-			<%= handoff.created_at %><br>
-		<% end %>
-		<br>
+		 <% if child.handoffs.length != 0 %>
+			<div id="attend_rpt">
+			<%= child.fname %>
+			<%= child.mname %>
+			<%= child.lname %>
+			</div>
+			<br>
+			<% child.handoffs.each do |handoff| %>
+				<%= handoff.attend %>
+				<%= ":" %>
+				<%= handoff.created_at %><br>
+			<% end %>
+		    <br>
+		 <% end %>
 	<% end %>
 </div>
 <br><br>

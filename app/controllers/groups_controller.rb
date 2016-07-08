@@ -38,10 +38,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      flash[:alert] = "Class #{@group.name} was formed!"
+      flash[:notice] = "Class #{@group.name} is registered!"
       redirect_to (:back)
     else
-      flash[:alert] = "There was a problem creating a new class. Please try again."
+      flash[:alert] = "There was a problem registering a new class. Please try again."
       redirect_to (:back)
     end
   end
@@ -55,7 +55,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      flash[:alert] = "Class #{@group.name} was updated"
+      flash[:notice] = "Class #{@group.name} was updated."
       redirect_to groups_path, method: :get
     else
       flash[:alert] = "Class update failed. Please try again."
@@ -66,7 +66,7 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     if @group.destroy
-      flash[:alert] = "The class was deleted."
+      flash[:notice] = "The class was deleted."
       redirect_to groups_path, method: :get
     else
       flash[:alert] = "The class did not delete. Please try again."
