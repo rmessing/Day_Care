@@ -1,6 +1,6 @@
 
 <br>
-<div class="title_center">
+<div id="teacher_edit" class="title_center">
 	<h3> Teacher Update/Delete <h3>
 </div><br><br><br>
 
@@ -11,7 +11,7 @@
 			
 			<%= f.text_field :email, placeholder: "change teacher email" %><br><br>
 			
-			<%= f.text_field :password, placeholder: "change teacher password" %><br><br>
+			<%= f.password_field :password, placeholder: "change teacher password" %><br><br>
 			
 			<%= f.submit "Submit Changes", :class => 'f_submit'  %>
 	<% end %>

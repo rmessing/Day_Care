@@ -16,7 +16,7 @@ body {
 .homediv {
 	text-align: center;
 	margin-top: 22vh;
-	margin-bottom: 0vh;
+	/*margin-bottom: -1vh;*/
 	height: 78vh;
 	width: 78vw;
 	margin-left: 11vw;
@@ -31,19 +31,21 @@ body {
 	display: inline-block;
 	position: relative;
 	width: 32%;
-	margin-top: 8%;
-	margin-bottom: -8%;
+	margin-top: 11%;
+	margin-bottom: -12%;
 }
 #firstpic {
 	margin-top: -3.5vh;
 	margin-bottom: 3.5vh;
+	width: 15vw;
 }
 #thirdpic {
 	margin-top: -2.5vh;
 	margin-bottom: 2.5vh;
+	width: 15vw;
 }
 #midpic {
-	margin: 0 2% 0 2%;
+	margin: -2.5VH 2vw 2.5vh 2vw;
 }
 .home {
 	border-radius: 50%;
@@ -233,6 +235,10 @@ body {
 #group_align {
 	margin-top: -1%;
 }
+#group_title {
+	margin-left: .5vw;
+	margin-right: -.5vw;
+}
 .red {
 	color: red;
 	font-size: 25px;
@@ -270,4 +276,7 @@ body {
 .right_button {
 	float: right;
 	margin-right: 35%;
+}
+#teacher_edit {
+	margin-right: 0px;
 }

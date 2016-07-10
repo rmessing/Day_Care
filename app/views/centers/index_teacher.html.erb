@@ -8,12 +8,13 @@
 			<%= f.text_field :name, placeholder: "teacher name" %><br><br>
 			<%= f.text_field :email, placeholder: "teacher email"  %>
 			<% f.hidden_field :center_id, :value => 1 %><br><br>
-			<%= f.text_field :password, placeholder: "teacher password"  %><br><br>
+			<%= f.password_field :password, placeholder: "teacher password"  %>
+			<br><br>
 			<%=f.submit "Register Teacher", :class => 'f_submit' %>
 	<%end%>
 	
 
-	<br><br><br>
+	<br><br>
 	<%= button_to "Edit/Delete Teacher", teachers_path, class: 'button_c', method: :get %><br>
 	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 </div>

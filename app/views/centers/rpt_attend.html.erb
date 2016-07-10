@@ -17,7 +17,7 @@
 			<% child.handoffs.each do |handoff| %>
 				<%= handoff.attend %>
 				<%= ":" %>
-				<%= handoff.created_at %><br>
+				<%= handoff.created_at.strftime("%d %b. %Y"" - %H:%M") %><br>
 			<% end %>
 		    <br>
 		 <% end %>

@@ -3,7 +3,7 @@
 	<h1> Family <h1>
 </div>
 
-<!-- Form for inputting a new parent. -->
+<!-- Form for registering a new parent. -->
 
 <div id="family_forms">
 	<div class="parent_child">
@@ -11,12 +11,12 @@
 		
 		<%= f.text_field :name, placeholder:"parent name"  %><br><br>
 		<%= f.text_field :email, placeholder:"parent email"   %><br><br>
-		<%= f.text_field :password, placeholder:"parent password"   %><br><br>
+		<%= f.password_field :password, placeholder:"parent password"   %><br><br>
 		<%= f.submit "Register Parent", :class => 'f_submit' %>
 		<% end %>
 	</div>
 
-<!-- Form for inputting a new child. -->
+<!-- Form for registering a new child. -->
 
 	<div class="parent_child">
 		<%= form_for Child.new do |f| %> 
