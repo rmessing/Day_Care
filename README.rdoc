@@ -6,7 +6,7 @@ Day Care Ops is a business application ordered by a day care industry consultant
 
 Center.create(name: "type center name", email: "type an email address", password: "type password") 
 
-Instead of installing Day Care Ops locally go to daycareops.herokuapp.com to demo the app by using the following credentials for all logins: richard.messing@gmail.com | password: 12345678.
+Instead of installing Day Care Ops locally go to daycareops.herokuapp.com to demo the app by using the following credentials for all logins: "demo@gmail.com" | password: "dcopsV1;"
 
 Attendance:  when a parent or guardian arrives at the day care center, they first log into Day Care Ops.  A list of the parent's children is displayed.  The parent then records either a child drop off or pick up event, by clicking on one of two radio buttons under the child's name.  The parent logs off.
 
