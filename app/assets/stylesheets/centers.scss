@@ -5,7 +5,9 @@
 * {
 	font-family: arial;
 }
-
+a {
+	text-decoration: none;
+}
 body {
 	height: 100vh;
 	overflow-y: hidden;
@@ -58,15 +60,12 @@ body {
 	padding-top: 5vh;
 	margin-bottom: -2vh;
 	position: relative;
-
 }
 #center_show h1 {
 	font-size: 30px;
-	
 }
 #center_show h2 {
 	font-size: 25px;
-	
 }
 #sub_title {
 	margin-top: -20px;
@@ -77,6 +76,8 @@ body {
 	margin-bottom: -25px;
 	padding: 0;
 	font-size: 30px;
+	margin-left: -.5vw;
+	margin-right: .5vw;
 }
 #attend_align {
 	margin-top: -2%;
@@ -105,19 +106,15 @@ body {
 #center_logout {
 	text-align: center;
 }
-.reports {
+.reports {				  /*standard div with scrolling*/
 	margin-top: 0;
-	/*margin-left: 10px;
-	margin-right: -10px;*/
-	/*z-index: 0;*/
 	text-align: center;
 	position: relative;
 	height: 40vh;
 	overflow: scroll;
-	/*background-color: #e7e7e7;*/
 	overflow-x: hidden; 
 }
-.reports_meals{
+.reports_meals{			    /*same as .reports with less height*/
 	margin-top: 0;
 	margin-left: 10px;
 	margin-right: -10px;
@@ -126,25 +123,17 @@ body {
 	position: relative;
 	height: 32vh;
 	overflow: scroll;
-	/*background-color: #e7e7e7;*/
 	overflow-x: hidden;
 }
 .center_div {
 	text-align: center;
-	/*margin-top: 20px;*/
 	top: 90vh;
 	height: 5vh;
 	bottom: 5vh;
 	width: 98vw;
-	margin-left: .7vw;
-	margin-right: -.7vw;
-
 }
 #center_div2 {
 	margin-left: -6px;
-}
-a {
-	text-decoration: none;
 }
 .report_line {
 	font-size: 30px;
@@ -165,10 +154,8 @@ a {
 	height: 100vh;
 	opacity: 1;
 }
-.notice {
+.notice {					/*blue flash msg displayed on right*/
 	position: absolute;
-	/*background-color: rgb(216,216,216);*/
-	/*background-color: yellow;*/
 	width: 18vw;
 	margin-right: 15vw;
 	margin-left: 70vw;
@@ -181,10 +168,8 @@ a {
 	color: blue;
 	text-decoration: bold;
 }
-.alert {
+.alert {					/*orange flash msg displayed on left*/
 	position: absolute;
-	/*background-color: rgb(216,216,216);*/
-	/*background-color: yellow;*/
 	width: 18vw;
 	margin-left: 15vw;
 	margin-right: 70vw;
@@ -197,8 +182,8 @@ a {
 	color: orange;
 	text-decoration: bold;
 }
-.button_t {
-    background-color: #f44336; /* Green */
+.button_t {						/*teacher red buttons*/
+    background-color: #f44336;  
     border-radius: 50%;
     color: white;
     padding: 13px 30px;
@@ -208,7 +193,7 @@ a {
     font-size: 1.1vw;
 }
 .button_p {
-    background-color: #008CBA; /* Green */
+    background-color: #008CBA;  /*parent blue buttons*/
     border-radius: 50%;
     color: white;
     padding: 13px 30px;
@@ -218,7 +203,7 @@ a {
     font-size: 1.1vw;
 }
 .button_c {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;  /*center green buttons*/
     border-radius: 50%;
     color: white;
     padding: 13px 30px;
