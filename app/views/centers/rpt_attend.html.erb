@@ -1,5 +1,6 @@
 <!-- Report lists all handoffs (pickups and dropoffs) for each child. The child is dropped from the report if no handoffs are on record. -->
 
+<% Time.zone = 'EST' %>
 <div class="title_center"> 
 	<h2> Attendance </h2>
 </div>
@@ -17,7 +18,7 @@
 			<% child.handoffs.each do |handoff| %>
 				<%= handoff.attend %>
 				<%= ":" %>
-				<%= handoff.created_at.strftime("%d %b. %Y"" - %H:%M") %><br>
+				<%= handoff.created_at.strftime("%d %b. %Y - %H:%M")  %><br>
 			<% end %>
 		    <br>
 		 <% end %>
