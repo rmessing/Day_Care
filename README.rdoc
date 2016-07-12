@@ -1,28 +1,52 @@
-== README
+== README for Day Care Ops
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Day Care Ops is a business application ordered by a day care industry consultant.  There are 125,000 child care facilities in the US, most of which are relatively small day care centers, too small to afford the day care software applications currently on the market.  Day Care Ops is targeting the smaller child care facilities with an inexpensive, easy to use interface.  The first two solutions coded into the app are Attendance tracking and Meals participation.  Knowing precisely when a child is on premises is critical for day care centers in the event legal issues arise.  The federal gov't helps to fund day care meals for children who qualify.  For this reason, it is imperitive to track meals participation in order to maximize food subsidies.
 
-Things you may want to cover:
+* Startup:  There are three user logins:  Parents, Teachers and Centers (admin).  Since there are no users in the db upon initial install, use the Rails Console to create one Center which will then give you access to the admin functions and the rest of the site:
 
-* Ruby version
+Center.create(name: "type center name", email: "type an email address", password: "type password") 
 
-* System dependencies
+Instead of installing Day Care Ops locally go to daycareops.herokuapp.com to demo the app by using the following credentials for all logins: "demo@gmail.com" | password: "dcopsV1;"
 
-* Configuration
+Attendance:  when a parent or guardian arrives at the day care center, they first log into Day Care Ops.  A list of the parent's children is displayed.  The parent then records either a child drop off or pick up event, by clicking on one of two radio buttons under the child's name.  The parent logs off.
 
-* Database creation
+Meals Accounting: teachers are required to record child meal particpation for all students each day.  The teacher logs in and chooses a class.  A class list is displayed with a list of offered meals for each student.  The teacher must choose a meals date and click on 'select meals date' before checking off the meal boxes and submitting.  Meal records can also be updated by selecting a date, clicking on the 'select meals date' button, then checking or unchecking meal boxes before submitting.  The teacher logs off.
 
-* Database initialization
+Center Admin Functions:
 
-* How to run the test suite
+Reports
+  - Meals:  displays a count for all meal types per child since the child became a student.  
+    Children with no meal participation are filtered out of the report.
+  - Attendance:  displays a list of all drop off (arrive) and pick up (depart) events for each child 
+    from the date the child became a student.
+  
+Families
+  - Register a parent with login credentials (validates presence of name, password and email).
+  - Register a child with food subsidy selection and class enrollment 
+    (validates presence of first and last names).
+  - Add a parent to a child's family; first displays parents already in child's family.
+  
+Teachers
+  - Register a new teacher.
+  - Update or delete a teacher.
+  
+Classes
+  - Open a new class - select teacher.
+  - Update or delete a class.
+  
+Additional Requirements:
+- a date range select feature will be added to the reporting function
+- Update/delete for parents and children
+- option to change password for parents and teachers
+- spreadsheet import/export 
+- password confirmation 
+- email format and in-use validation
+- log all actions with timestamp
+- option to select all children for each meal
+- electronic teacher signature upon meal submit
 
-* Services (job queues, cache servers, search engines, etc.)
+Ruby version 2.3.0 | Rails 4.2.6
 
-* Deployment instructions
-
-* ...
+System dependencies: PostgreSQl configured for development and production.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
