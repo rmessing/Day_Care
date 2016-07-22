@@ -133,8 +133,8 @@ body {
 	height: 5vh;
 	bottom: 5vh;
 	width: 97vw;
-	margin-left: 1.1vw;
-	margin-right: -1.1vw;
+	/*margin-left: 1vw;
+	margin-right: -1vw;*/
 }
 #center_div2 {
 	margin-left: -6px;
@@ -226,10 +226,10 @@ body {
 	font-weight: bold;
 	font-size: 1.5em;
 }
-/*#meals_rpt_button {
-	margin-left: 1.1vw;
-	margin-right: -1.1vw;
-}*/
+#meals_rpt_button {
+	margin-left: .4vw;
+	margin-right: -.4vw;
+}
 #child_bold {
 	font-weight: bold;
 	font-size: 1.5em;
