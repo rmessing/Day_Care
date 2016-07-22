@@ -34,6 +34,17 @@ body {
 	margin-top: 11%;
 	margin-bottom: -12%;
 }
+.user_login {
+	margin-top: -100px;
+}
+.login_form {
+	text-align: center;
+	margin-top: 45vh;
+	height: 30vh;
+	margin-bottom: 25vh;
+	font-size: 30px;
+	width: 100vw;
+}
 #firstpic {
 	margin-top: -3.5vh;
 	margin-bottom: 3.5vh;
@@ -104,6 +115,16 @@ body {
 	width: 100vw;
 	height: 35vh;
 	margin: 0% 33% 0 37%;
+}
+#families_index {
+	text-align: center;
+	margin-top: -30px;
+}
+#attach_parent {
+	text-align: center;
+	margin-top: 20vh;
+	height: 50vh;
+	margin-bottom: 30vh;
 }
 #center_logout {
 	text-align: center;
@@ -279,12 +300,18 @@ body {
 }
 .left_button {
 	float: left;
-	margin-left: 37%;
+	margin-left: 39%;
 }
 .right_button {
 	float: right;
-	margin-right: 35%;
+	margin-right: 36%;
 }
 #teacher_edit {
 	margin-right: 0px;
+}
+#handoff_form {
+	text-align: center;
+	margin-top: 150px;
+	font-size: 30px;
+	position: relative;
 }
