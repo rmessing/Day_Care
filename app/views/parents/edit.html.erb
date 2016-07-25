@@ -1,2 +1,19 @@
-<h1>Teachers#edit</h1>
-<p>Find me in app/views/teachers/edit.html.erb</p>
+<br>
+<div id="teacher_edit" class="title_center">
+	<h3> Parent Update/Delete <h3>
+</div><br><br><br>
+
+<div id="teacher_update" class="sign_up">
+		<%= form_for @parent do |f| %>
+		
+		<%= f.text_field :name, placeholder:"parent name"  %><br><br>
+		<%= f.text_field :email, placeholder:"parent email"   %><br><br>
+		<%= f.password_field :password, placeholder:"parent password"   %><br><br>
+		<%= f.submit "Update Parent", :class => 'f_submit' %>
+		<% end %>
+	<br><br><br>
+	<%= button_to "Delete Parent", parent_path(@parent.id), class: 'button_c', method: :delete %>
+	<br>
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
+</div>

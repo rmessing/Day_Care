@@ -28,25 +28,26 @@ class ParentsController < ApplicationController
 
   def edit
   	@parent = Parent.find(params[:id])
+    @center = current_center
   end
 
   def update
   	@parent = Parent.find(params[:id])
   	if @parent.update(parent_params)
-  	  flash[:notice] = "Parent #{@parent.name} has been updated"
+  	  flash[:notice] = "Parent #{@parent.name} has been updated."
     else
       flash[:alert] = "Parent #{@parent.name} did not update. Please try again."
     end
-  	redirect_to parents_path, method: :get
+  	redirect_to children_path, method: :get
   end
 
   def destroy
   	if Parent.find(params[:id]).destroy
-      flash[:notice] = "Parent #{@parent.name} was deleted"
+      flash[:notice] = "The parent was deleted."
     else
       flash[:alert] = "Parent did not delete. Please try again."
     end
-  	redirect_to parents_path, method: :get
+  	redirect_to children_path, method: :get
   end
 
   private

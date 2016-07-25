@@ -3,3 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#meal_rpt {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#meals_rpt_button {
+	margin-left: .4vw;
+	margin-right: -.4vw;
+}
+#meals_group {
+	text-align: center;
+	margin-top: 36vh;
+	height: 20vh;
+	margin-bottom: 44vh;
+	width: 100vw;
+}
+#meals_group h1 {
+	font-size: 50px;
+}
+#meal_form {
+	text-align: center;
+	margin-top: 12%;
+}
+.reports_meals {			    /*same as .reports with less height*/
+	margin-top: 0;
+	margin-left: 10px;
+	margin-right: -10px;
+	z-index: 0;
+	text-align: center;
+	position: relative;
+	height: 32vh;
+	overflow: scroll;
+	overflow-x: hidden;
+}

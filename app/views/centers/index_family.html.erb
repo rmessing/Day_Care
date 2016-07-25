@@ -5,7 +5,7 @@
 
 <!-- Form for registering a new parent. -->
 
-<div id="family_forms">
+<div class="family_forms">
 	<div class="parent_child">
 		<%= form_for Parent.new do |f| %>
 		
@@ -39,8 +39,12 @@
 	<div class="left_button">
 		<%= button_to "Make Family", families_path, class: 'button_c', method: :get %>
 	</div>
+	
+		
+	
 	<div class="right_button">	
 		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 	</div>
+	<%= button_to "Edit/Delete Family", children_path, class: 'button_c', method: :get %>
 </div>
 

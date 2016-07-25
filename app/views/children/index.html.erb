@@ -1,22 +1,32 @@
-<h1>Children#index</h1>
-<p>Find me in app/views/children/index.html.erb</p>
-
-<!-- If class has no children, the text "Child list for class..." is not displayed. -->
 <div class="title_center">
-	
-	<% if @group.children.first %>
-		<h2><%= "Children in class: " %><%= @group.name %></h2>
-	<% else %>
-		<h2><%= "No children have been assigned to class: " %> <%= @group.name %></h2>
-	<% end %>
+		<h3>Select Family Member</h3> 
+		<h5>child&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspparent</h5>
+</div>
 
-	<div class="reports">
-		<% @group.children.each do |child| %>
-			<br>
-			<%= child.fname %>
-			<%= child.mname %>
-			<%= child.lname %>
+<div class="child_index">
+	<div class="reports_family">
+		<% @children.each do |child| %>
+
+			<a href="<%= edit_child_path(child.id) %>">
+			<h3><%= child.fname %>
+				<%= child.mname %>
+				<%= child.lname %></h3>
+			</a>
+
 		<% end %>
 	</div>
-	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	<div class="reports_family">
+		<% @parent.each do |parent| %>
+
+			<a href="<%= edit_parent_path(parent.id) %>">
+			<h3><%= parent.name %></h3>
+			</a>
+
+		<% end %>
+	</div>
+
 </div>
+<div class="button_adjust">	
+		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+</div>
+

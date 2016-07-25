@@ -1,2 +1,25 @@
-<h1>Teachers#edit</h1>
-<p>Find me in app/views/teachers/edit.html.erb</p>
+
+<div id="teacher_edit" class="title_center">
+	<h3> Child Update/Delete <h3>
+</div><br><br>
+
+<div id="teacher_update" class="sign_up">
+		<%= form_for @child do |f| %> 
+		
+		<%= f.text_field :fname, placeholder:"child first name"   %><br><br>
+		
+		<%= f.text_field :mname, placeholder:"child middle name"   %><br><br>
+		
+		<%= f.text_field :lname, placeholder:"child last name"  %><br><br>
+		<%= f.label :Meal_Subsidy %>
+		<%= f.select :food_subsidy, ['None', 'Free', 'Reducted'] %><br><br>
+		<%= f.label :Class_Select %>
+		<%= f.collection_select :group_id, Group.all, :id, :name, include_blank: true %><br><br>
+		<%= f.submit "Submit Changes", :class => 'f_submit' %>
+		<% end %>
+		<br><br>
+	<%= button_to "Delete Child", child_path(@child.id), class: 'button_c', method: :delete %>
+	<br>
+	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
+</div>

@@ -3,3 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.family_forms {
+	width: 100vw;
+	height: 35vh;
+	margin: 0% 33% 0 37%;
+}
+#families_index {
+	text-align: center;
+	margin-top: -30px;
+}
+.reports_family {
+	margin-top: 0;
+	text-align: center;
+	position: relative;
+	height: 40vh;
+	overflow: scroll;
+	overflow-x: hidden;
+	float: left;
+	width: 15vw;
+	/*overflow-y: hidden;*/
+}
