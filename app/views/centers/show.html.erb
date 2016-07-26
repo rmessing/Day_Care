@@ -7,20 +7,16 @@
 	<div id="center_show2">
 		 <h1><%= "#{@center.name}" %></h1> 
 		<h2 id="sub_title"> Administration </h2>
-
-
 		<h2 class="red"> Reports </h2>
 			<strong class="font_size"><%= link_to "Meals", rpt_meal_path %><br></strong>
 			<strong class="font_size"><%= link_to "Attendance", rpt_attend_path %></strong><br>
-			
-
 		<h2 class="red"> People </h2>
 			<strong class="font_size"><%= link_to "Family", familyc_path %></strong>
 			<strong class="font_size"><%= link_to "- Teacher -", teacherc_path %></strong>
 			<strong class="font_size"><%= link_to "Class", groupc_path %></strong>
 
 		<!-- <h3> sign up, update, delete </h3> -->
-		<br><br><br>
+		<br><br>
 		<%= button_to "Logout", center_log_out_path, class: 'button_c', method: :delete %>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 
 <div id="teacher_edit" class="title_center">
 	<h3> Child Update/Delete <h3>
-</div><br><br>
+</div><br>
 
 <div id="teacher_update" class="sign_up">
 		<%= form_for @child do |f| %> 
@@ -17,7 +17,7 @@
 		<%= f.collection_select :group_id, Group.all, :id, :name, include_blank: true %><br><br>
 		<%= f.submit "Submit Changes", :class => 'f_submit' %>
 		<% end %>
-		<br><br>
+		<br>
 	<%= button_to "Delete Child", child_path(@child.id), class: 'button_c', method: :delete %>
 	<br>
 	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
