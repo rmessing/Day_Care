@@ -174,16 +174,30 @@ body {
 }
 
 .left_button {
-	float: left;
-	margin-left: 27vw;
+	text-align: center;
+	margin-left: -23vw;
 	margin-right: 0;
-	position: relative;
+	position: fixed;
+	width: 10vw;
+	top: 70vh;
+	display: inline-block;
 }
 .right_button {
-	float: right;
-	margin-right: 25vw;
-	margin-left: 0;
-	position: relative;
+	text-align: center;
+	/*margin-right: -25vw;*/
+	margin-left: 12vw;
+	position: fixed;
+	width: 10vw;
+	top: 70vh;
+	display: inline-block;
 }
-
+#middle_button {
+	display: inline-block;
+	text-align: center;
+	width: 11vw;
+	top: 70vh;
+	margin-left: -7vw;
+	/*margin-right: 11vw;*/
+	position: fixed;
+}
 
