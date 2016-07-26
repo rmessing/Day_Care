@@ -23,6 +23,7 @@ body {
 #center_show2 {
 	padding-top: 5vh;
 	margin-bottom: -2vh;
+	margin-top: -2vh;
 	position: relative;
 }
 #center_show h1 {
@@ -36,7 +37,7 @@ body {
 }
 .title_center {
 	text-align: center;
-	margin-top: 20vh;
+	margin-top: 18vh;
 	margin-bottom: -25px;
 	padding: 0;
 	font-size: 30px;
@@ -174,12 +175,15 @@ body {
 
 .left_button {
 	float: left;
-	margin-left: 28vw;
+	margin-left: 27vw;
 	margin-right: 0;
+	position: relative;
 }
 .right_button {
 	float: right;
-	margin-right: 26vw;
+	margin-right: 25vw;
+	margin-left: 0;
+	position: relative;
 }
 
 

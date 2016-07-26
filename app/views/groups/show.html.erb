@@ -2,7 +2,6 @@
 
 <div id="meal_form">
 	<h1> Meals for class: <%= @group.name %> </h1>
-	<h1> on <%= @date.strftime("%m/%d/%y") %></h1>
 
 	<%= form_tag group_meals_path(@group) do %>
 		<%= select_date(date = @date, options = {}, html_options = {}) %>
@@ -11,6 +10,9 @@
 	<br>
 </div>
 <div class="reports_meals">
+	<% if @group.children.length == 0 %>
+		<i> (There are no children registered for this class.) </i>
+	<% end %>
 	<% @group.children.each do |child| %>
 		
 <!-- If a meal record for the selected date already exists, then do an update, if not, then create a new meal. -->

@@ -29,19 +29,21 @@
 		<%= f.label :Meal_Subsidy %>
 		<%= f.select :food_subsidy, ['None', 'Free', 'Reducted'] %><br><br>
 		<%= f.label :Class_Select %>
-		<%= f.collection_select :group_id, Group.all, :id, :name, include_blank: true %><br><br>
+		<%= f.collection_select :group_id, Group.all, :id, :name, prompt: false %><br><br>
 		<%= f.submit "Register Child", :class => 'f_submit' %>
 		<% end %><br>
 	</div>
 </div>
-<br>
-<div class="center_div">
+
+<!-- <div class="center_div"> -->
 	<div class="left_button">
 		<%= button_to "Make Family", families_path, class: 'button_c', method: :get %>
 	</div>
 	<div class="right_button">	
 		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
 	</div>
-	<%= button_to "Edit/Delete Family", children_path, class: 'button_c', method: :get %>
-</div>
+	<div id="f_update_button">
+		<%= button_to "Edit/Delete Family", children_path, class: 'button_c', method: :get %>
+	</div>
+<!-- </div> -->
 

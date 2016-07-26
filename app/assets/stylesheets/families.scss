@@ -5,8 +5,8 @@
 
 .family_forms {
 	width: 100vw;
-	height: 35vh;
-	margin: 0% 33% 0 37%;
+	height: 30vh;
+	margin: 0% 34vw 0 36vw;
 }
 #families_index {
 	text-align: center;
@@ -20,6 +20,19 @@
 	overflow: scroll;
 	overflow-x: hidden;
 	float: left;
-	width: 15vw;
+	width: 18vw;
 	/*overflow-y: hidden;*/
+}
+#family_button {
+	margin-left: .45vw;
+	margin-right: -.45vw;
+}
+#f_update_button {
+	/*text-align: center;*/
+	width: 10vw;
+	/*margin-bottom: 10%;*/
+	top: 70vh;
+	margin-left: 43vw;
+	margin-right: 47vw;
+	position: absolute;
 }

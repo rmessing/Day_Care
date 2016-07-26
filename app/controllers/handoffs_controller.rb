@@ -10,11 +10,13 @@ class HandoffsController < ApplicationController
 
   def create
      @handoff = Handoff.new(handoff_params)
-     if @handoff.save
-      flash[:notice] = "The handoff was recorded!"
-     else
-      flash[:alert] = "The handoff was NOT recorded - Try Again."
-     end
+     if @handoff.attend = ""
+       flash[:alert] = "Choose drop-off or pick-up before submit."
+       elsif @handoff.save
+        flash[:notice] = "The handoff was recorded!"
+       else
+        flash[:alert] = "The handoff was NOT recorded - Try Again."
+       end
      redirect_to (:back)
   end
 

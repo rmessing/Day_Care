@@ -1,11 +1,13 @@
 <!-- Parent selects drop off or pick up when the child arrives or departs from the center. -->
-<% Time.zone = 'America/New_York' %>
+
 <div class="title_center">
-	<h1 id="attend_align"> Attendance </h1>
+	<h2> Attendance </h2>
 </div>
-
+<% Time.zone = 'America/New_York' %>
 <div class="reports">
-
+	<% if @parent.children.length == 0 %>
+		<i> (Your children are not registered.) </i>
+	<% end %>
 	<% @parent.children.each do |child| %>
 		<%= form_for @handoff do |f| %>
 			<strong class="font_size_names"><br>
@@ -15,9 +17,9 @@
 			</strong><br>
 			<strong>
 			<%= f.radio_button(:attend, "arrive") %>
-			<%= f.label(:handoff_arrive, "drop off") %>
+			<%= f.label(:handoff_arrive, "drop-off") %>
 			<%= f.radio_button(:attend, "depart") %>
-			<%= f.label(:handoff_depart, "pick up") %>
+			<%= f.label(:handoff_depart, "pick-up") %>
 			<%= f.hidden_field :child_id, :value => child.id %>
 			<%= f.button :submit, :class => 'f_submit'  %>
 			</strong>
