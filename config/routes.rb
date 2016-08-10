@@ -1,29 +1,9 @@
 Rails.application.routes.draw do
-  get 'families/new'
 
-  get 'families/create'
-
-  get 'families/update'
-
-  get 'families/edit'
-
-  get 'families/destroy'
-
-  get 'families/index'
-
-  get 'families/show'
-
-  # post "/meals" => "groups#view"
   get "/meals/new" => "meals#new"
   post "/meals/new" => "groups#view"
   get "/meals/:id" => "groups#show", as: :group_meals
-
   post "/meals/:id" => "groups#show"
-
-  get "/familyc/" => "centers#index_family"
-  get "/teacherc/" => "centers#index_teacher"
-  get "/groupc/" => "centers#index_group"
-
   get "/rpt_attend/" => "centers#rpt_attend"
   get "/rpt_meal/" => "centers#rpt_meal"
 
@@ -38,9 +18,6 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  # post "/meals/create" => "meals#create"
-
-  
   get "/parent-log-in" => "sessions#new_parent", as: :parent_log_in
 
   post "/parent-log-in" => "sessions#create_parent"

@@ -1,2 +1,48 @@
-<h1>Families#new</h1>
-<p>Find me in app/views/families/new.html.erb</p>
+
+<div class="title_center">
+	<h2> Family <h2>
+</div>
+
+<!-- Form for registering a new parent. -->
+
+<div class="family_forms">
+	<div class="parent_child">
+		<%= form_for Parent.new do |f| %>
+		
+		<%= f.text_field :name, placeholder:"parent name"  %><br><br>
+		<%= f.text_field :email, placeholder:"parent email"   %><br><br>
+		<%= f.password_field :password, placeholder:"parent password"   %><br><br>
+		<%= f.submit "Register Parent", :class => 'f_submit' %>
+		<% end %>
+	</div>
+
+<!-- Form for registering a new child. -->
+
+	<div class="parent_child">
+		<%= form_for Child.new do |f| %> 
+		
+		<%= f.text_field :fname, placeholder:"child first name"   %><br><br>
+		
+		<%= f.text_field :mname, placeholder:"child middle name"   %><br><br>
+		
+		<%= f.text_field :lname, placeholder:"child last name"  %><br><br>
+		<%= f.label :Meal_Subsidy %>
+		<%= f.select :food_subsidy, ['None', 'Free', 'Reducted'] %><br><br>
+		<%= f.label :Class_Select %>
+		<%= f.collection_select :group_id, Group.all, :id, :name, prompt: false %><br><br>
+		<%= f.submit "Register Child", :class => 'f_submit' %>
+		<% end %><br>
+	</div>
+</div>
+
+<div class="family_div">
+	<div class="left_button">
+		<%= button_to "Make Family", families_path, class: 'button_c', method: :get %>
+	</div>
+	<div class="right_button">	
+		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	</div>
+	<div id="middle_button">
+		<%= button_to "Edit/Delete Family", children_path, class: 'button_c', method: :get %>
+	</div>
+</div>

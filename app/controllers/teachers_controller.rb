@@ -17,6 +17,7 @@ class TeachersController < ApplicationController
   def new
     @teacher = Teacher.new
     @group = Group.new
+    @center = current_center
   end
 
   def create

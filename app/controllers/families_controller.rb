@@ -2,6 +2,7 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
+    @center = current_center
   end
 
   def create

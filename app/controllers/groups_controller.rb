@@ -33,6 +33,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @teachers = Teacher.all
+    @center = current_center
   end
 
   def create
