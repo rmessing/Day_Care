@@ -21,6 +21,6 @@
 		<br>
 	<%= button_to "Delete Child", child_path(@child.id), class: 'button_c', method: :delete %>
 	<br>
-	<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+	<%= button_to "Center Home", center_path(current_center), class: 'button_c', method: :get %>
 	</div>
 </div>

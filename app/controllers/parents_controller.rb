@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
   def index
-  	@parents = Parent.all
+  	@parents = Parent.order("name")
   end
 
   def show
@@ -28,7 +28,6 @@ class ParentsController < ApplicationController
 
   def edit
   	@parent = Parent.find(params[:id])
-    @center = current_center
   end
 
   def update

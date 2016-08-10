@@ -2,7 +2,6 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
-    @center = current_center
   end
 
   def create
@@ -26,9 +25,7 @@ class FamiliesController < ApplicationController
   end
 
   def index
-    # @children = Child.all
     @children = Child.order("lname")
-    @center = current_center
   end
 
   def show

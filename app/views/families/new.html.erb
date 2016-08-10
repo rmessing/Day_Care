@@ -40,7 +40,7 @@
 		<%= button_to "Make Family", families_path, class: 'button_c', method: :get %>
 	</div>
 	<div class="right_button">	
-		<%= button_to "Center Home", center_path(@center), class: 'button_c', method: :get %>
+		<%= button_to "Center Home", center_path(current_center), class: 'button_c', method: :get %>
 	</div>
 	<div id="middle_button">
 		<%= button_to "Edit/Delete Family", children_path, class: 'button_c', method: :get %>

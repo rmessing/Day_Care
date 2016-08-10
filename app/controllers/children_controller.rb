@@ -2,13 +2,11 @@ class ChildrenController < ApplicationController
   def index
     @children = Child.order("lname")
     @parent = Parent.order("name")
-    @center = current_center
   end
 
   def show
     @child = Child.find(params[:id])
     @parents = Parent.all
-    @center = current_center
   end
 
   def new
@@ -27,7 +25,6 @@ class ChildrenController < ApplicationController
 
   def edit
     @child = Child.find(params[:id])
-    @center = current_center
   end
 
   def update

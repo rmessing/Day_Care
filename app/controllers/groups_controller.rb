@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.order("name")
-    @center = current_center
   end
 
 # detecting no group select error before system abbend.
@@ -33,7 +32,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @teachers = Teacher.all
-    @center = current_center
   end
 
   def create
@@ -49,8 +47,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-    @teachers = Teacher.all
-    @center = current_center
+    @teachers = Teacher.order("name")
   end
 
   def update

@@ -1,7 +1,6 @@
 class TeachersController < ApplicationController
   def index
     @teachers = Teacher.order("name")
-    @center = current_center
   end
 
   def show
@@ -16,8 +15,6 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
-    @group = Group.new
-    @center = current_center
   end
 
   def create
@@ -32,7 +29,6 @@ class TeachersController < ApplicationController
 
   def edit
     @teacher = Teacher.find(params[:id])
-    @center = current_center
   end
 
   def update

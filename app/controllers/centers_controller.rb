@@ -1,30 +1,15 @@
 class CentersController < ApplicationController
-  def index_family
-    @center = current_center
-  end
-
-  def index_teacher
-    @center = current_center
-  end
-
-  def index_group
-    @teachers = Teacher.all
-    @center = current_center
-  end
 
   def rpt_attend
     @children = Child.order("lname")
-    @center = current_center
   end
 
    def rpt_meal
     @children = Child.order("lname")
-    @center = current_center
   end
 
   def index
-    @centers = Center.all
-    @center = current_center
+   
   end
 
   def show
