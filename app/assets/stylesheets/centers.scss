@@ -8,6 +8,9 @@
 a {
 	text-decoration: none;
 }
+a:hover {
+	text-decoration: underline;
+}
 body {
 	height: 100vh;
 	overflow-y: hidden;
@@ -68,6 +71,7 @@ body {
 }
 .reports {				  /*standard div with scrolling*/
 	margin-top: 0;
+	margin-left: -1vw;
 	text-align: center;
 	position: relative;
 	height: 40vh;
