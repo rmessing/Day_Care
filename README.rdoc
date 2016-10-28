@@ -2,8 +2,7 @@
 
 Demo Instructions:  go to http://daycareops.herokuapp.com/.  Use the following demo login credentials for Parent, Teacher or Center Admin users:
 
-Login email:  demo@gmail.com
-Login password: dcopsV1;
+Login email: "demo@gmail.com" | password: "dcopsV1;"
 
 Overview:
 
