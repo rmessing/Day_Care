@@ -1,9 +1,4 @@
 class MealsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
 
   def new
       @meal = Meal.new
@@ -18,10 +13,6 @@ class MealsController < ApplicationController
         flash[:alert] = "There was a problem recording the meals. Please try again."
     end
     redirect_to (:back)
-  end
-
-  def edit
-   
   end
 
   def update

@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   get "/rpt_attend/" => "centers#rpt_attend"
   get "/rpt_meal/" => "centers#rpt_meal"
 
-  resources :centers
-  resources :children
+  resources :centers, only: [:show]
+  resources :children, except: [:new]
   resources :groups
-  resources :handoffs
-  resources :meals
+  resources :handoffs, only: [:create, :destroy]
+  resources :meals, only: [:new, :create, :update, :destroy]
   resources :parents
   resources :teachers
-  resources :families
+  resources :families, only: [:new, :index, :create]
 
   root "home#index"
 

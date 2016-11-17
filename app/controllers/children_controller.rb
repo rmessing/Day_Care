@@ -9,10 +9,6 @@ class ChildrenController < ApplicationController
     @parents = Parent.all
   end
 
-  def new
-      @child = Child.new
-  end
-
   def create
     @child = Child.new(child_params)
     if @child.save

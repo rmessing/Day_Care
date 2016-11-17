@@ -15,20 +15,8 @@ class FamiliesController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-
   def index
     @children = Child.order("lname")
-  end
-
-  def show
   end
 
   private

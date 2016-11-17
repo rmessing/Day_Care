@@ -1,12 +1,4 @@
 class HandoffsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
 
   def create
      @handoff = Handoff.new(handoff_params)
@@ -18,12 +10,6 @@ class HandoffsController < ApplicationController
         flash[:alert] = "The handoff was NOT recorded - Try Again."
        end
      redirect_to (:back)
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
